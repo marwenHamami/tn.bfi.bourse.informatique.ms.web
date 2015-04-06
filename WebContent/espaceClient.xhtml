@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title">espace client</ui:define>
+	<ui:define name="content">
+
+		<div id="cA">
+			<div class="Ctopleft"></div>
+			<h3>SEARCH</h3>
+			<div id="search">
+				<input type="text" class="search" /><input type="submit"
+					class="submit" value="Submit" />
+			</div>
+			<!-- search -->
+			<p>&nbsp;</p>
+			<h3>TESTIMONIALS</h3>
+			<p class="testimonial">
+				<img src="images/testi_skuola.jpg" alt="Skuola Screenshot Piece"
+					width="87" height="100" class="leflo" />They are not just graphic
+				artists, they are artists. They brought my ideas to reality making
+				my portal's graphics simple, lightweight and intuitive. I especially
+				appreciated their helpful attitude in looking together for the best
+				solution. Impressive!<br /> <strong>Marco from Skuola.net</strong>
+			</p>
+			<p class="testimonial">
+				<img src="images/testi_tmm.jpg"
+					alt="The Music Magazine Screenshot Piece" width="87" height="100"
+					class="leflo" />Their knowledge of web design has been invaluable
+				in creating a website fit for public use. I received a range of
+				affordable packages, and they were happy to spend as much time as we
+				needed to make sure everything was perfect for my launch date. Full
+				marks!<br /> <strong>Scott from TheMusicMagazine.co.uk</strong>
+			</p>
+		</div>
+		<!-- cA -->
+		<div id="cB">
+			<div class="Ctopright"></div>
+			<div id="cB1">
+				<h3>Inscription</h3>
+				<h:form>
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Login" />
+						<p:inputText required="true" placeholder="login"
+							value="#{userCtr.client.login}" />
+
+						<h:outputLabel value="email" />
+						<p:inputText required="true" type="email"
+							placeholder="john@doe.com" value="#{userCtr.client.email}" />
+
+						<h:outputLabel value="mot de passe" />
+						<p:password required="true" value="#{userCtr.client.password}" />
+
+						<h:outputLabel value="confirmation" />
+						<p:password required="true" value="#{userCtr.password}" />
+
+						<h:outputLabel value="Nom" />
+						<p:inputText required="true" placeholder="nom"
+							value="#{userCtr.client.nom}" />
+
+						<h:outputLabel value="Prenom" />
+						<p:inputText required="true" placeholder="prenom"
+							value="#{userCtr.client.prenom}" />
+
+						<h:outputLabel value="Telephone" />
+						<p:inputText required="true" type="number"
+							placeholder="num de telephone" value="#{userCtr.client.tel}" />
+
+						<h:outputLabel value="Adresse" />
+						<p:inputText required="true" placeholder="address"
+							value="#{userCtr.client.adresse}" />
+					</h:panelGrid>
+					<p:commandButton value="Valider"
+						action="#{userCtr.doRegistration()}" update="growl" />
+				</h:form>
+			</div>
+			<!-- cB1 -->
+			<div id="cB2">
+				<h3>TEMPLATE FEATURES</h3>
+				<div class="about">
+					<h:form>
+						<h:panelGrid columns="2">
+							<h:outputLabel value="login" />
+							<p:inputText value="#{userCtr.login}" />
+							<h:outputLabel value="mot de passe" />
+							<p:password value="#{userCtr.password}" />
+						</h:panelGrid>
+						<p:commandButton action="#{userCtr.doLogin()}" value="Envoyer" />
+					</h:form>
+				</div>
+			</div>
+			<!-- cB2 -->
+		</div>
+		<!-- cB -->
+		<div class="Cpad">
+			<br class="clear" />
+			<div class="Cbottomleft"></div>
+			<div class="Cbottom"></div>
+			<div class="Cbottomright"></div>
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>

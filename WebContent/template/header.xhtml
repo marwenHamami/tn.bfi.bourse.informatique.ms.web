@@ -1,8 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	headeer
-</ui:composition> 
+	<div id="logo">
+		<a href="./"><img src="#{request.contextPath}/ressources/images/logo.gif" alt="Your Company Logo"
+			width="318" height="85" /></a><span id="logo-text"><a href="./">Your
+				Company</a></span>
+	</div>
+	<!-- logo -->
+	<div id="menu">
+		<ul>
+			<li><a href="./" id="active">Home</a></li>
+			<li><a href="./">Articles</a></li>
+			<li><a href="./">Forums</a></li>
+			<li><a href="./">Gallery</a></li>
+			<li><a href="./">Links</a></li>
+			<li><a href="#{request.contextPath}/espaceClient.jsf">espace client</a></li>
+		</ul>
+	</div>
+	<!-- menu -->
+	<div id="ticker">
+		Visit <a href="http://www.symisun.com/templates/">templates area</a>
+		on our site to get the latest version of this template and more free
+		templates.
+	</div>
+	<!-- ticker -->
+	<div id="headerimage">
+		<div id="download">
+			<span id="download-text"><a
+				href="http://www.symisun.com/index.php?dl_id=1">download this
+					amazing<br />CSS template for FREE!
+			</a></span>
+		</div>
+		<!-- download -->
+		<div id="icons">
+			<a href="./"><img src="#{request.contextPath}/ressources/images/icon_home.gif" alt="Home"
+				width="13" height="13" id="home" /></a> <a href="./"><img
+				src="#{request.contextPath}/ressources/images/icon_sitemap.gif" alt="Sitemap" width="13" height="13"
+				id="sitemap" /></a> <a href="./"><img src="#{request.contextPath}/ressources/images/icon_contact.gif"
+				alt="Contact" width="13" height="13" id="contact" /></a>
+		</div>
+		<!-- icons -->
+		<div id="slogan">your slogan could go here</div>
+	</div>
+
+
+</ui:composition>

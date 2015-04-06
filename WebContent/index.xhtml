@@ -4,20 +4,111 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/template/template.xhtml">
-
 	<ui:define name="title"> welcome page</ui:define>
-	
 	<ui:define name="content">
-	<h1>welcome</h1>
-	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputLabel value="login" />
-			<h:inputText value="#{userCtr.login}" />
-			<h:outputLabel value="mot de passe" />
-			<h:inputSecret value="#{userCtr.password}" />
-		</h:panelGrid>
-		<h:commandButton action="#{userCtr.doLogin()}" value="Envoyer" />
-	</h:form>
-	</ui:define>
 
+		<div id="cA">
+			<div class="Ctopleft"></div>
+			<h3>SEARCH</h3>
+			<div id="search">
+				<input type="text" class="search" /><input type="submit"
+					class="submit" value="Submit" />
+			</div>
+			<!-- search -->
+			<p>&nbsp;</p>
+			<h3>TESTIMONIALS</h3>
+			<p class="testimonial">
+				<img src="images/testi_skuola.jpg" alt="Skuola Screenshot Piece"
+					width="87" height="100" class="leflo" />They are not just graphic
+				artists, they are artists. They brought my ideas to reality making
+				my portal's graphics simple, lightweight and intuitive. I especially
+				appreciated their helpful attitude in looking together for the best
+				solution. Impressive!<br />
+				<strong>Marco from Skuola.net</strong>
+			</p>
+			<p class="testimonial">
+				<img src="images/testi_tmm.jpg"
+					alt="The Music Magazine Screenshot Piece" width="87" height="100"
+					class="leflo" />Their knowledge of web design has been invaluable
+				in creating a website fit for public use. I received a range of
+				affordable packages, and they were happy to spend as much time as we
+				needed to make sure everything was perfect for my launch date. Full
+				marks!<br />
+				<strong>Scott from TheMusicMagazine.co.uk</strong>
+			</p>
+		</div>
+		<!-- cA -->
+		<div id="cB">
+			<div class="Ctopright"></div>
+			<div id="cB1">
+				<h3>ABOUT SYMISUN* &amp; TERMS OF USE</h3>
+				<div class="news">
+					<p>SymiSun* is a newly formed company offering various internet
+						solutions. To celebrate the launch of our website, we decided to
+						give away this commercial CSS template, normally worth over $300,
+						for FREE.</p>
+				</div>
+				<div class="news">
+					<p>We aim to show our appreciation to the web community with
+						this move and at the same time spread the word of our existence.</p>
+				</div>
+				<div class="news">
+					<p>You may use this template freely either for personal or
+						commercial projects, but we require that you keep the 3 words with
+						the link at the bottom of the template saying Designed by
+						SymiSun*.</p>
+				</div>
+				<div class="news">
+					<p>Feel free to modify the template to suit your needs, and
+						even sell it to 3rd parties, but remember that you have to keep
+						our copyright. Fair enough, OK?</p>
+				</div>
+				<div class="news">
+					<p>Should you be interested in acquiring the PSD of this
+						template, contact us.</p>
+				</div>
+			</div>
+			<!-- cB1 -->
+			<div id="cB2">
+				<h3>TEMPLATE FEATURES</h3>
+				<div class="about">
+					<ul>
+						<li>100% height, no matter how long the content goes</li>
+						<li>Compatible with screen resolution of 1024x768 and higher</li>
+						<li>A simple yet impressive and totally brandable template</li>
+						<li>Tested to work faultlessly in IE 6, IE 7, FireFox 2 and
+							Opera 9.1</li>
+						<li>Lightweight code of under 14KB and images under 48KB, a
+							total of under 62KB</li>
+						<li>Unique icons that we have designed especially for this
+							template</li>
+						<li>A free sample logo for anyone to use and edit according
+							to needs</li>
+						<li>A PSD available for sale with all graphics in layers for
+							even easier editing</li>
+					</ul>
+				</div>
+				<div id="newsletter">
+					<span id="newsletter-title"><a
+						href="http://www.symisun.com/newsletter/en">Newsletter</a></span>
+					<p id="newsletter-text">
+						<a href="http://www.symisun.com/newsletter/en">Click here to
+							register for SymiSun's monthly newsletter</a>
+					</p>
+				</div>
+				<!-- newsletter -->
+			</div>
+			<!-- cB2 -->
+		</div>
+		<!-- cB -->
+		<div class="Cpad">
+			<br class="clear" />
+			<div class="Cbottomleft"></div>
+			<div class="Cbottom"></div>
+			<div class="Cbottomright"></div>
+		</div>
+
+
+
+	</ui:define>
 </ui:composition>
