@@ -39,25 +39,17 @@
 		<div id="cB">
 			<div class="Ctopright"></div>
 			<br />
-			<h1>liste des portefeuilles</h1> 
-			<br />
-			<p:commandButton value="Ajouter" action="#{portefeuilleCtr.doRedirectToAddPortefeuille}"/>
-			<br/><br/>
-			<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
-				id="portefeuilleDT" selectionMode="single"
-				rowKey="#{port.id}"
-				selection="#{portefeuilleCtr.selectedPrtefeuille}" 
-				value="#{portefeuilleCtr.doFindAll()}" var="port">
-				<f:facet name="header">
-           			Portefeuilles
-      			  </f:facet>
-				<p:column headerText="nom portefeuille">
-					<h:outputText value="#{port.libelle}" />
-				</p:column>
-				<p:column headerText="capital">
-					<h:outputLabel value="#{port.capital}" />
-				</p:column>
-			</p:dataTable>
+			<h1>Ajouter un portefeuille</h1>
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="libelle" />
+					<p:inputText value="#{portefeuilleCtr.portefeuille.libelle}" />
+					<h:outputLabel value="Capital" />
+					<p:inputText value="#{portefeuilleCtr.portefeuille.capital}" />
+				</h:panelGrid>
+				<p:commandButton value="Ajouter"
+					action="#{portefeuilleCtr.doAddPortefeuille()}" />
+			</h:form>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->
