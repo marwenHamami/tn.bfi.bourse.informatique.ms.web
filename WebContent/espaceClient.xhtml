@@ -45,7 +45,10 @@
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Login" />
 						<p:inputText required="true" placeholder="login"
-							value="#{userCtr.client.login}" />
+							value="#{userCtr.client.login}">
+							<p:ajax listener="#{userCtr.doVerifLogin}" event="keyup"
+								update="validator" />
+						</p:inputText>
 
 						<h:outputLabel value="email" />
 						<p:inputText required="true" type="email"
@@ -75,6 +78,8 @@
 					</h:panelGrid>
 					<p:commandButton value="Valider"
 						action="#{userCtr.doRegistration()}" update="growl" />
+							<h:outputLabel id="validator" value="#{userCtr.validator}"
+							style="color:red" />
 				</h:form>
 			</div>
 			<!-- cB1 -->

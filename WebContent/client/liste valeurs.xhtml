@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title">Listes des valeurs</ui:define>
+	<ui:define name="content">
+		<div id="cA">
+			<div class="Ctopleft"></div>
+			<h3>Synthése</h3>
+			<h4><a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a></h4>
+			<h4>Indices de marché</h4>
+            <h3><a href="#{request.contextPath}/client/liste%20valeurs.jsf">Mes liste valeurs</a></h3>
+			<h3><a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a></h3>			<h3>Achat en Bourse</h3>
+			<h4>Modifier ordre</h4>
+			<h4>Annuler ordre</h4>
+			<h3>Vente en Bourse</h3>
+			<h4>Modifier ordre</h4>
+			<h4>Annuler ordre</h4>
+			<h3>Historique Movement</h3>
+			</div>
+			<!-- search -->
+			<p></p>
+			<h3></h3>
+		<!-- cA -->
+		<div id="cB">
+			<div class="Ctopright"></div>
+			<div id="cB1" style=" width : 666px;">
+			
+ 
+			
+			<br />
+			<br />
+			    <h1>Liste De Valeur Personnalisée</h1>
+			  <br/><br/>
+		<h:form>  
+    <p:growl id="messages" showDetail="true" />
+ 
+    <p:toolbar>
+        <f:facet name="left">
+            <p:commandButton type="button" value="Nouvelle Liste" icon="ui-icon-document" />
+           <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+            
+
+            <p:commandButton value="Supprimer" type="button" title="Supprimer" icon="ui-icon-trash" />
+            <p:commandButton value="Imprimer" type="button" title="Imprimer" icon="ui-icon-print" />
+        </f:facet>
+ 
+        <f:facet name="right">
+            <p:menuButton value="Choisir Liste">
+                <p:menuitem value="Delete" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
+                <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink" />
+            </p:menuButton>
+        </f:facet>
+    </p:toolbar>
+</h:form>
+<br/><br/><br/><br/><br/><br/>
+<h:form>     
+    <p:growl id="messages" showDetail="true" />
+ 
+    <p:toolbar>
+        <f:facet name="left">
+            <p:menuButton value="Type">
+                <p:menuitem value="Action" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
+                <p:menuitem value="Obligation" url="http://www.primefaces.org" icon="ui-icon-extlink" />
+                 <p:menuitem value="Droit" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
+            </p:menuButton>
+        </f:facet>
+  <f:facet name="right">
+            <p:menuButton value="Ajouter valeur">
+                <p:menuitem value="Biat" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
+                <p:menuitem value="ATB" url="http://www.primefaces.org" icon="ui-icon-extlink" />
+                 <p:menuitem value="UBCI" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
+            </p:menuButton>
+        </f:facet>
+    </p:toolbar>
+</h:form>
+
+		
+				</div>
+			</div>
+			
+		<div class="Cpad">
+			<br class="clear" />
+			<div class="Cbottomleft"></div>
+			<div class="Cbottom"></div>
+			<div class="Cbottomright"></div>
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>

@@ -7,7 +7,7 @@
 	<ui:define name="title"> espace client</ui:define>
 	<ui:define name="content">
 
-		<div id="cA">
+	<div id="cA">
 			<div class="Ctopleft"></div>
 			<h3>Synthése</h3>
 			<h4><a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a></h4>
@@ -20,22 +20,33 @@
 			<h4>Modifier ordre</h4>
 			<h4>Annuler ordre</h4>
 			<h3>Historique Movement</h3>
+			
+			
+			
 			</div>
 		<!-- cA -->
 		<div id="cB">
 			<div class="Ctopright"></div>
 			<br />
-			<h1>Ajouter un portefeuille</h1>
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="libelle" />
-					<p:inputText value="#{portefeuilleCtr.portefeuille.libelle}" />
-					<h:outputLabel value="Capital" />
-					<p:inputText value="#{portefeuilleCtr.portefeuille.capital}" />
-				</h:panelGrid>
-				<p:commandButton value="Ajouter"
-					action="#{portefeuilleCtr.doAddPortefeuille()}" />
-			</h:form>
+			<h1>liste des portefeuilles</h1> 
+			<br />
+			<p:commandButton value="Ajouter" action="#{portefeuilleCtr.doRedirectToAddPortefeuille}"/>
+			<br/><br/>
+			<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
+				id="portefeuilleDT" selectionMode="single"
+				rowKey="#{port.id}"
+				selection="#{portefeuilleCtr.selectedPrtefeuille}" 
+				value="#{portefeuilleCtr.doFindAll()}" var="port">
+				<f:facet name="header">
+           			Portefeuilles
+      			  </f:facet>
+				<p:column headerText="nom portefeuille">
+					<h:outputText value="#{port.libelle}" />
+				</p:column>
+				<p:column headerText="capital">
+					<h:outputLabel value="#{port.capital}" />
+				</p:column>
+			</p:dataTable>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title">compte espece</ui:define>
+	<ui:define name="content">
+
+		<div id="cA">
+			<div class="Ctopleft"></div>
+			<h3>Synthése</h3>
+			<h4>
+				<a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a>
+			</h4>
+			<h4>Indices de marché</h4>
+			<h3>
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">Mes
+					liste valeurs</a>
+			</h3>
+			<h3>
+				<a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a>
+			</h3>
+			<h3>Achat en Bourse</h3>
+			<h3>Vente en Bourse</h3>
+			<h3>Suivre ordre</h3>
+			<h4>Modifier ordre</h4>
+			<h4>Annuler ordre</h4>
+			<h3>Historique Movement</h3>
+
+		</div>
+		<!-- cA -->
+		<div id="cB">
+			<div class="Ctopright"></div>
+			<div id="cB1">
+			
+				<h:form>
+				<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
+					id="CompteEspece" selectionMode="single" rowKey="#{compte.id}"
+					selection="#{compteEspeceCtr.selectedCompte_espece}"
+					value="#{compteEspeceCtr.compte_especes}" var="compte">
+					<f:facet name="header">
+           			Compte Espece
+      			  </f:facet>
+					<p:column>
+						<h:outputLabel value="#{compte.lib}" />
+					</p:column>
+					<p:column headerText="RIB">
+						<h:outputLabel value="#{compte.RIB}" />
+					</p:column>
+					<p:column headerText="solde">
+						<h:outputLabel value="#{compte.solde}" />
+					</p:column>
+				</p:dataTable>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="libelle" />
+					<p:inputText value="#{compteEspeceCtr.compte_espece.lib}" />
+					<h:outputLabel value="RIB" />
+					<p:inputText value="#{compteEspeceCtr.compte_espece.RIB}" />
+					<h:outputLabel value="solde" />
+					<p:inputText value="#{compteEspeceCtr.compte_espece.solde}" />
+					<p:commandButton value="Ajouter" update="CompteEspece" action="#{compteEspeceCtr.doAdd}" />
+				</h:panelGrid>
+			</h:form>
+			
+			
+			
+			</div>
+		</div>
+		<!-- cB2 -->
+		<!-- cB -->
+		<div class="Cpad">
+		<br class="clear" />
+			
+			<div class="Cbottomleft"></div>
+			<div class="Cbottom"></div>
+			<div class="Cbottomright"></div>
+		</div>
+	</ui:define>
+</ui:composition>
