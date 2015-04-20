@@ -54,9 +54,11 @@
 								update="validator" />
 						</p:inputText>
 
-						<h:outputLabel value="email" />
-						<p:inputText required="true" type="email"
-							placeholder="john@doe.com" value="#{userCtr.client.email}" />
+						<h:outputLabel for="email" value="email" />
+						
+ <p:inputText id="email" value="#{userCtr.client.email}" required="true" label="Email" validatorMessage=" email is not valid">
+    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.(com|net|org|edu|tn)" />
+</p:inputText>
 
 						<h:outputLabel value="mot de passe" />
 						<p:password required="true" value="#{userCtr.client.password}" />

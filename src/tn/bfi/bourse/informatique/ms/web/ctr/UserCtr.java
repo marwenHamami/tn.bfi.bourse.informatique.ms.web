@@ -26,7 +26,7 @@ public class UserCtr {
 		Client client = new Client();
 		client.setLogin("aziz");
 		client.setPassword("aziz");
-		// userEJBLocal.registrationClient(client);
+	// userEJBLocal.registrationClient(client);
 	}
 
 	public String doLogin() {
