@@ -9,6 +9,21 @@
 
 	<div id="cA">
 			<div class="Ctopleft"></div>
+			<br></br>
+		<h:form>
+    <p:messages id="messages" showDetail="true"/>
+ 
+    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+        
+    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
+                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+        
+        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
+        <p:watermark for="keyword"  id="watermark" />
+    
+ 
+   </h:panelGrid>
+</h:form>
 			<h3>Synthése</h3>
 			<h4><a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a></h4>
 			<h4>Indices de marché</h4>

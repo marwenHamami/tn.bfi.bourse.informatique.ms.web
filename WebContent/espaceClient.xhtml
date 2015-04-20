@@ -9,31 +9,35 @@
 
 		<div id="cA">
 			<div class="Ctopleft"></div>
-			<h3>SEARCH</h3>
-			<div id="search">
-				<input type="text" class="search" /><input type="submit"
-					class="submit" value="Submit" />
-			</div>
+			<br></br>
+		<h:form>
+    <p:messages id="messages" showDetail="true"/>
+ 
+    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+        
+    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
+                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+        
+        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
+        <p:watermark for="keyword"  id="watermark" />
+    
+ 
+   </h:panelGrid>
+</h:form>
 			<!-- search -->
 			<p>&nbsp;</p>
-			<h3>TESTIMONIALS</h3>
-			<p class="testimonial">
-				<img src="images/testi_skuola.jpg" alt="Skuola Screenshot Piece"
-					width="87" height="100" class="leflo" />They are not just graphic
-				artists, they are artists. They brought my ideas to reality making
-				my portal's graphics simple, lightweight and intuitive. I especially
-				appreciated their helpful attitude in looking together for the best
-				solution. Impressive!<br /> <strong>Marco from Skuola.net</strong>
+			<h3>Actualités</h3>
+			<p class="chelsea">
+				La Bourse MSB a participé au Salon de entrepreneuriat organisé les 11 et 12 avril 2015 au siège de l’UTICA.!<br />
+				<strong></strong>
 			</p>
-			<p class="testimonial">
-				<img src="images/testi_tmm.jpg"
-					alt="The Music Magazine Screenshot Piece" width="87" height="100"
-					class="leflo" />Their knowledge of web design has been invaluable
-				in creating a website fit for public use. I received a range of
-				affordable packages, and they were happy to spend as much time as we
-				needed to make sure everything was perfect for my launch date. Full
-				marks!<br /> <strong>Scott from TheMusicMagazine.co.uk</strong>
+			<p class="chelsea">
+				La Bourse MSB a été informée que la «CSI» a autorisé le relèvement du taux de la participation étrangère de 49.9% à 51.57% dans le capital de la SFBT.!<br />
+				<strong></strong>
 			</p>
+			<p class="chelsea">
+			La Bourse MSB a accueilli le vendredi 19 mars 2015, un groupe d’une cinquantaine d'Inspecteurs Centraux du Ministère de l’Economie et des Finances, en formation à l’Ecole Nationale des Finances.</p>
+		
 		</div>
 		<!-- cA -->
 		<div id="cB">
@@ -84,7 +88,7 @@
 			</div>
 			<!-- cB1 -->
 			<div id="cB2">
-				<h3>TEMPLATE FEATURES</h3>
+				<h3>Accés Client</h3>
 				<div class="about">
 					<h:form>
 						<h:panelGrid columns="2">
