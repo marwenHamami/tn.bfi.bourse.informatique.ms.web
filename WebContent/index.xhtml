@@ -8,15 +8,16 @@
 	<ui:define name="title"> welcome page</ui:define>
 	<ui:define name="content">
 
-		<div id="cA">
+		<div id="cA" style=" height : 339px;">
 			<div class="Ctopleft"></div>
 			<br></br>
+			<div id="search">
 		<h:form>
     <p:messages id="messages" showDetail="true"/>
  
     <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
         
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
+    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Recherche"
                         onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
         
         <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
@@ -25,72 +26,77 @@
  
    </h:panelGrid>
 </h:form>
-			<!-- search -->
-			<p>&nbsp;</p>
-			<h3>Actualités</h3>
-			<p class="chelsea">
-				La Bourse MSB a participé au Salon de entrepreneuriat organisé les 11 et 12 avril 2015 au siège de l’UTICA.!<br />
-				<strong></strong>
+</div>
+		<!-- search -->
+		<br />
+		<br />
+			<h1 align="center"> Vous pouvez utiliser votre phone pour suivre vos valeus</h1>
+			<p class="testimonial">
+			<img src="./ressources/images/images (1).jpg" alt="" style="height : 166px; width : 236px;"/>
 			</p>
-			<p class="chelsea">
-				La Bourse  MSB a été informée que la «CSI» a autorisé le relèvement du taux de la participation étrangère de 49.9% à 51.57% dans le capital de la SFBT.!<br />
-				<strong></strong>
-			</p>
-			<p class="chelsea">
-			La Bourse MSB a accueilli le vendredi 19 mars 2015, un groupe d’une cinquantaine d'Inspecteurs Centraux du Ministère de l’Economie et des Finances, en formation à l’Ecole Nationale des Finances.</p>
 		</div>
 		<!-- cA -->
 		<div id="cB">
-			<div class="Ctopright"></div>
-			<div id="cB1">
-		
-				<h3> PALMARES</h3>
-				<div class="news">
-					<p>best 3 performers  .</p>
-					<ul><li>ATB </li>
-						<li>AMEN BANK </li>
-							<li>BIAT </li></ul>
-				</div>
-				<div class="news">
-				
-					<p>worst 3 performers .</p>
-					<ul>
-					<li>TIJERI </li>
-						<li>BH </li>
-							<li>DELICE </li></ul>
-				</div>
-				
-			</div>
-			<!-- cB1 -->
-			<div id="cB2">
-				<h3>GRAPHES</h3>
-				<div class="about">
+			<div class="Ctopright" style=" width : 336px; height : 208px;">
+			<br></br>
+			<h3>GRAPHES</h3>
+				<div class="about" style="height : 102px; width : 302px;">
 					<ul>
 						<li>graphe 1 ta3 a7sen we7ed </li>
 						<li>graphe 2 ta3 theni a7sen we7ed </li>
 					</ul>
 				</div>
-				<div id="newsletter">
-					<span id="newsletter-title"><a
-						href="http://www.symisun.com/newsletter/en">Newsletter</a></span>
-					<p id="newsletter-text">
-						<a href="http://www.symisun.com/newsletter/en">Click here to
-							register for MSbourse's monthly newsletter</a>
-					</p>
+			</div>
+			<div id="cB1" style=" width : 299px;">
+		<br/>	
+			<h1 >Valeur de marché </h1>
+		<br/>
+		
+				<p:dataTable rows="5">
+				<f:facet name="header">
+           			Valeurs Hausses
+      			  </f:facet>
+				<p:column headerText="Valeur">
+					<h:outputText value="" />
+				</p:column>
+				<p:column headerText="Cours">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Variation">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="%">
+					<h:outputLabel value="" />
+				</p:column>
+			</p:dataTable>
+			<br/>
+			<br/>
+			<p:dataTable >
+				<f:facet name="header">
+           			Valeurs Baisses
+      			  </f:facet>
+				<p:column headerText="Valeur">
+					<h:outputText value="" />
+				</p:column>
+				<p:column headerText="Cours">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Variation">
+					<h:outputLabel value="" />
+				</p:column><p:column headerText="%">
+					<h:outputLabel value="" />
+				</p:column>
+			</p:dataTable>
 				</div>
-				<!-- newsletter -->
+				
+			</div>
+			<!-- cB1 -->
+			<div id="cB2">
+				
 			</div>
 			<!-- cB2 -->
-		</div>
+
 		<!-- cB -->
-		<div class="Cpad">
-			<br class="clear" />
-			<div class="Cbottomleft"></div>
-			<div class="Cbottom"></div>
-			<div class="Cbottomright"></div>
-		</div>
-
-
-
+	
 	</ui:define>
 </ui:composition>

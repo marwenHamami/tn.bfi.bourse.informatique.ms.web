@@ -4,10 +4,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title"> espace client</ui:define>
+	<ui:define name="title">Portfeuille</ui:define>
 	<ui:define name="content">
 
-		<div id="cA">
+	<div id="cA">
 			<div class="Ctopleft"></div>
 			<br></br>
 		<h:form>
@@ -24,7 +24,6 @@
  
    </h:panelGrid>
 </h:form>
-			
 			<h3>Synthése</h3>
 			<h4><a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a></h4>
 			<h4>Indices de marché</h4>
@@ -36,26 +35,67 @@
 			<h4>Modifier ordre</h4>
 			<h4>Annuler ordre</h4>
 			<h3>Historique Movement</h3>
+			
+			
+			
 			</div>
 		<!-- cA -->
-		<div id="cB">
-			
-			<br />
-			<h1 align="center" >Ajouter un portefeuille</h1>
+		<div id="cB" align="center">
 			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="libelle" />
-					<p:inputText value="#{portefeuilleCtr.portefeuille.libelle}" />
-					<h:outputLabel value="Capital" />
-					<p:inputText value="#{portefeuilleCtr.portefeuille.capital}" />
-				</h:panelGrid>
-				<p:commandButton value="Ajouter"
-					action="#{portefeuilleCtr.doAddPortefeuille()}" />
+       
+
+			<br />
+			<h1> Information Portefeuille</h1> 
+			<br />
+			
+			 <h:panelGrid columns="4" cellpadding="5" style="height : 23px; width : 604px;">
+           
+ 
+            <p:outputLabel for="extended" value="Portefeuille" />
+            <p:outputLabel id="extended" required="true" />
+ 
+            <p:outputLabel for="number" value="Valorisation:" />
+            <p:outputLabel id="number" required="true"/>
+        </h:panelGrid>
+
+			<br/><br/>
+			<p:dataTable paginator="true" paginatorPosition="bottom" rows="20">
+				
+				<f:facet name="header">
+           			Information Portefeuille
+      			  </f:facet>
+				<p:column headerText="Valeur">
+					<h:outputText value="" />
+				</p:column>
+				<p:column headerText="Prix revient">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Quantité">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Cours">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Var.Jour">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Capital.initial">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Gain(DT)">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Gain(%)">
+					<h:outputLabel value="" />
+				</p:column>
+			</p:dataTable>
+			<p:commandButton  value="Acheter" />
+			<p:commandButton  value="Vendre" />
 			</h:form>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->
-
+	
 
 
 

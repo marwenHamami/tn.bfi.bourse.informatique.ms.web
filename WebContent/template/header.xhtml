@@ -2,11 +2,12 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 	<div id="logo">
 		<a href="./"><img src="#{request.contextPath}/ressources/images/logo.gif" alt="Your Company Logo"
-			width="318" height="85" /></a><span id="logo-text"><a href="./">MSbourse</a></span>
+			width="318" height="85" style=" height : 75px;"/></a><span id="logo-text"><a href="./"></a></span>
 	</div>
 	<!-- logo -->
 	<div id="menu">
@@ -20,176 +21,16 @@
 	</div>
 	<!-- menu -->
 
-	<div id="ticker">
-		
-
-<marquee onmouseover="this.stop();" onmouseout="this.start();" height="15" scrolldelay="1" scrollamount="3" direction="left" width="980" style="height: 15px; width: 980px;">
-
-		<span class="isin"><a href="?view=stocksheet&amp;isin=340005" style="color:#005500">AB</a></span> <span class="last">23,99<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,79 %</span><span class="sep">|</span>
 	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=725001" style="color:#005500">ADWYA</a></span> <span class="last">8,18<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,98 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=750001" style="color:#333">AETEC</a></span> <span class="last">2,28<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=230035" style="color:#333">AL</a></span> <span class="last">214,00<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=380070" style="color:#990000">ALKIM</a></span> <span class="last">59,00<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,85 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=150085" style="color:#005500">AMS</a></span> <span class="last">3,54<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,14 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=730001" style="color:#005500">ARTES</a></span> <span class="last">7,00<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,44 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=714001" style="color:#990000">ASSAD</a></span> <span class="last">7,79<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-1,14 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=300045" style="color:#333">AST</a></span> <span class="last">54,00<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=360035" style="color:#333">ATB</a></span> <span class="last">4,27<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=470010" style="color:#333">ATL</a></span> <span class="last">2,84<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=190060" style="color:#005500">BH</a></span> <span class="last">13,20<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,22 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=180045" style="color:#005500">BIAT</a></span> <span class="last">82,00<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,02 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=758001" style="color:#333">BL</a></span> <span class="last">1,80<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=310060" style="color:#333">BNA</a></span> <span class="last">9,55<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=220005" style="color:#333">BT</a></span> <span class="last">10,78<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=130055" style="color:#333">BTE</a></span> <span class="last">21,05<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=740001" style="color:#005500">CC</a></span> <span class="last">2,07<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,47 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=759001" style="color:#333">CELL</a></span> <span class="last">8,00<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=420085" style="color:#005500">CIL</a></span> <span class="last">14,20<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,50 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=755001" style="color:#990000">CITY</a></span> <span class="last">12,90<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,15 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=764001" style="color:#005500">CREAL</a></span> <span class="last">6,40<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,31 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=767001" style="color:#990000">DH</a></span> <span class="last">16,40<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-1,67 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=757001" style="color:#005500">ECYCL</a></span> <span class="last">20,00<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,90 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=330090" style="color:#333">ELBEN</a></span> <span class="last">3,68<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=713001" style="color:#005500">GIF</a></span> <span class="last">3,23<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>3,19 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=731013" style="color:#005500">HL</a></span> <span class="last">7,65<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,65 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=320075" style="color:#333">ICF</a></span> <span class="last">36,05<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=751001" style="color:#005500">LNDOR</a></span> <span class="last">6,47<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,31 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=665001" style="color:#990000">LSTR</a></span> <span class="last">5,61<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-2,94 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=644001" style="color:#990000">MAG</a></span> <span class="last">27,00<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-1,74 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=658001" style="color:#005500">MGR</a></span> <span class="last">1,85<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,54 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=766001" style="color:#990000">MIP</a></span> <span class="last">1,31<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-2,23 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=672004" style="color:#333">ML</a></span> <span class="last">5,20<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=100010" style="color:#005500">MNP</a></span> <span class="last">18,70<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,68 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=762001" style="color:#333">MPBS</a></span> <span class="last">7,00<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=741001" style="color:#990000">NAKL</a></span> <span class="last">10,57<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,18 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=754001" style="color:#005500">NBL</a></span> <span class="last">6,69<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>2,92 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=753001" style="color:#333">OTH</a></span> <span class="last">7,81<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=570001" style="color:#990000">PGH</a></span> <span class="last">5,30<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,74 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=250065" style="color:#333">PLTU</a></span> <span class="last">47,93<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=761001" style="color:#005500">SAH</a></span> <span class="last">13,00<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,48 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=655001" style="color:#333">SALIM</a></span> <span class="last">23,10<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=735001" style="color:#005500">SCB</a></span> <span class="last">5,70<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,78 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=734001" style="color:#333">SERVI</a></span> <span class="last">12,43<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=110025" style="color:#990000">SFBT</a></span> <span class="last">29,39<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-1,21 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=659001" style="color:#005500">SIAME</a></span> <span class="last">2,06<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,47 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=400005" style="color:#333">SIMPA</a></span> <span class="last">48,40<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=667001" style="color:#333">SIPHA</a></span> <span class="last">7,08<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=718001" style="color:#333">SITS</a></span> <span class="last">1,83<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=721001" style="color:#005500">SOKNA</a></span> <span class="last">5,08<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,19 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=678001" style="color:#333">SOMOC</a></span> <span class="last">3,02<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=729001" style="color:#005500">SOPAT</a></span> <span class="last">3,22<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,62 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=760001" style="color:#005500">SOTEM</a></span> <span class="last">2,70<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>2,66 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=653001" style="color:#333">SOTET</a></span> <span class="last">2,45<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=656001" style="color:#005500">SOTUV</a></span> <span class="last">5,05<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>1,40 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=140070" style="color:#333">SPDIT</a></span> <span class="last">12,17<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=756001" style="color:#333">SPHAX</a></span> <span class="last">3,90<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=606001" style="color:#005500">STAR</a></span> <span class="last">177,90<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,50 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=260095" style="color:#333">STB</a></span> <span class="last">4,61<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=664001" style="color:#333">STEQ</a></span> <span class="last">5,20<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=763001" style="color:#990000">STPAP</a></span> <span class="last">4,70<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,84 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=666001" style="color:#990000">STPIL</a></span> <span class="last">8,60<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-1,14 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=120040" style="color:#990000">TAIR</a></span> <span class="last">0,93<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-1,06 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=765001" style="color:#333">TGH</a></span> <span class="last">0,64<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=410020" style="color:#333">TINV</a></span> <span class="last">12,61<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=160015" style="color:#990000">TJARI</a></span> <span class="last">27,55<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,36 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=661001" style="color:#333">TJL</a></span> <span class="last">25,98<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=744001" style="color:#333">TLNET</a></span> <span class="last">4,82<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=210090" style="color:#333">TLS</a></span> <span class="last">21,54<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=727001" style="color:#005500">TPR</a></span> <span class="last">4,35<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>0,69 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=738001" style="color:#333">TRE</a></span> <span class="last">7,84<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=240050" style="color:#333">UBCI</a></span> <span class="last">25,30<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=390010" style="color:#333">UIB</a></span> <span class="last">15,95<img src="http://www.ameninvest.com.tn/images/pixel.gif" border="0" hspace="3"/>0,00 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=720001" style="color:#990000">WIFAK</a></span> <span class="last">18,39<img src="http://www.ameninvest.com.tn/images/down_arrow.png" border="0" hspace="3"/>-0,05 %</span><span class="sep">|</span>
-	
-		<span class="isin"><a href="?view=stocksheet&amp;isin=749001" style="color:#005500">XABYT</a></span> <span class="last">8,39<img src="http://www.ameninvest.com.tn/images/up_arrow.png" border="0" hspace="3"/>2,94 %</span><span class="sep">|</span>
-	
-</marquee>
-
-	</div>
 	<!-- ticker -->
 	<div id="headerimage">
 		
 		<!-- download -->
-		<div id="icons">
-			<a href="./"><img src="#{request.contextPath}/ressources/images/icon_home.gif" alt="Home"
-				width="13" height="13" id="home" /></a> <a href="./"><img
-				src="#{request.contextPath}/ressources/images/icon_sitemap.gif" alt="Sitemap" width="13" height="13"
-				id="sitemap" /></a> <a href="./"><img src="#{request.contextPath}/ressources/images/icon_contact.gif"
-				alt="Contact" width="13" height="13" id="contact" /></a>
+		<div id="download">
+		
+		</div>
+		<div id="icons" style=" height : 33px;">
+			
 		</div>
 		<!-- icons -->
 		<div id="slogan"></div>

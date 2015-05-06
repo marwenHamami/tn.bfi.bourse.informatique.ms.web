@@ -24,8 +24,8 @@ public class UserCtr {
 	@PostConstruct
 	private void init() {
 		Client client = new Client();
-		client.setLogin("aziz");
-		client.setPassword("aziz");
+		client.setLogin("marwen");
+		client.setPassword("marwen");
 	// userEJBLocal.registrationClient(client);
 	}
 

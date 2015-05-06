@@ -6,8 +6,7 @@
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
 	<ui:define name="title">Listes des valeurs</ui:define>
 	<ui:define name="content">
-		<div id="cA">
-			<div class="Ctopleft"></div>
+		<div id="cA" align="left">
 			<br></br>
 		<h:form>
     <p:messages id="messages" showDetail="true"/>
@@ -35,12 +34,8 @@
 			<h4>Annuler ordre</h4>
 			<h3>Historique Movement</h3>
 			</div>
-			<!-- search -->
-			<p></p>
-			<h3></h3>
-		<!-- cA -->
-		<div id="cB">
-			<div class="Ctopright"></div>
+			
+		<div id="cB" align="center">
 			<div id="cB1" style=" width : 666px;">
 			
  
@@ -60,7 +55,7 @@
             </span>
             
 
-            <p:commandButton value="Supprimer" type="button" title="Supprimer" icon="ui-icon-trash" />
+            <p:commandButton value="Supprimer valeur" type="button" title="Supprimer" icon="ui-icon-trash" />
             <p:commandButton value="Imprimer" type="button" title="Imprimer" icon="ui-icon-print" />
         </f:facet>
  
@@ -70,9 +65,34 @@
                 <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink" />
             </p:menuButton>
         </f:facet>
+        
     </p:toolbar>
+     <p:dataTable rows="20">
+				<p:column headerText="Valeur">
+					<h:outputText value="" />
+				</p:column>
+				<p:column headerText="Dernier cours">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="var(%)">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Ouverture">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="+Haut">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="+Bas">
+					<h:outputLabel value="" />
+				</p:column>			
+				<p:column headerText="Volume">
+					<h:outputLabel value="" />
+				</p:column>		
+			</p:dataTable>
 </h:form>
-<br/><br/><br/><br/><br/><br/>
+<p:commandButton value="Supprimer liste" style=""  />
+<br/>
 <h:form>     
     <p:growl id="messages" showDetail="true" />
  
@@ -97,15 +117,6 @@
 		
 				</div>
 			</div>
-			
-		<div class="Cpad">
-			<br class="clear" />
-			<div class="Cbottomleft"></div>
-			<div class="Cbottom"></div>
-			<div class="Cbottomright"></div>
-		</div>
-
-
-
+		
 	</ui:define>
 </ui:composition>

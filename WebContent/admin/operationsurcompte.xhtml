@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title">Operation compte</ui:define>
+	<ui:define name="content">
+
+		<div align="center">
+			<div id="cB1" style="height : 270px; width : 970px;">
+
+            <p:dataTable paginator="true" paginatorPosition="bottom" rows="20"
+				id="user" selectionMode="single"
+				rowKey="#{port.id}"
+				selection="#{AdminCtr.selectedUser}" 
+				value="#{AdminCtr.doFindAll()}" var="port">
+				<f:facet name="header">
+           			Activer Comptes
+      			  </f:facet>
+				<p:column headerText="ID">
+					<h:outputText value="#{userCtr.client.id}" />
+				</p:column>
+				<p:column headerText="Nom">
+					<h:outputLabel value="#{userCtr.client.nom}" />
+				</p:column>
+				<p:column headerText="Prenom">
+					<h:outputLabel value="#{userCtr.client.prenom}" />
+				</p:column>
+				<p:column headerText="E-mail">
+					<h:outputLabel value="#{userCtr.client.email}" />
+				</p:column>
+				<p:column headerText="tel">
+					<h:outputLabel value="#{userCtr.client.tel}" />
+				</p:column>
+				<p:column headerText="Adresse">
+					<h:outputLabel value="#{userCtr.client.adresse}" />
+				</p:column>			
+			</p:dataTable>
+			<p:commandButton value="Activer"/>
+			<br /><br /><br />
+			
+			
+			 <p:dataTable paginator="true" paginatorPosition="bottom" rows="20"
+				id="user" selectionMode="single"
+				rowKey="#{port.id}"
+				selection="#{AdminCtr.selectedUser}" 
+				value="#{AdminCtr.doFindAll()}" var="port">
+				<f:facet name="header">
+           			Supprimer compte
+      			  </f:facet>
+				<p:column headerText="ID">
+					<h:outputText value="#{userCtr.client.id}" />
+				</p:column>
+				<p:column headerText="Nom">
+					<h:outputLabel value="#{userCtr.client.nom}" />
+				</p:column>
+				<p:column headerText="Prenom">
+					<h:outputLabel value="#{userCtr.client.prenom}" />
+				</p:column>
+				<p:column headerText="E-mail">
+					<h:outputLabel value="#{userCtr.client.email}" />
+				</p:column>
+				<p:column headerText="tel">
+					<h:outputLabel value="#{userCtr.client.tel}" />
+				</p:column>
+				<p:column headerText="Adresse">
+					<h:outputLabel value="#{userCtr.client.adresse}" />
+				</p:column>			
+			</p:dataTable>
+			
+			<p:commandButton value="Supprimer"/>
+				</div>
+			</div>
+			<!-- cB2 -->
+
+		<!-- cB -->
+
+
+
+	</ui:define>
+</ui:composition>

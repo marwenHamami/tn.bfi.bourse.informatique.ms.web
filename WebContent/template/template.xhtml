@@ -13,13 +13,17 @@
 	<div id="daddy">
 		<div id="header">
 			<ui:include src="/template/header.xhtml" />
+			
 		</div>
 		<div id="content">
-			<ui:insert name="content"></ui:insert>
+		
+			<ui:insert name="content">
+			
+			</ui:insert>
 		</div>
 	</div>
-	<div id="properspace"></div>
-	<div id="footer">
+	<div id="properspace" style=" height : 400px;"></div>
+	<div id="footer" style=" height : 35px;">
 		<ui:include src="/template/footer.xhtml" />
 	</div>
 </body>
