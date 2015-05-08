@@ -8,71 +8,43 @@
 	<ui:define name="content">
 
 		<div align="center">
-			<div id="cB1" style="height : 270px; width : 970px;">
-
-            <p:dataTable paginator="true" paginatorPosition="bottom" rows="20"
-				id="user" selectionMode="single"
-				rowKey="#{port.id}"
-				selection="#{AdminCtr.selectedUser}" 
-				value="#{AdminCtr.doFindAll()}" var="port">
-				<f:facet name="header">
-           			Activer Comptes
+			<div id="cB1" style="height: 270px; width: 970px;">
+				<h:form id="form">
+					<p:dataTable id="clientDT" paginator="true"
+						paginatorPosition="bottom" rows="10" selectionMode="single"
+						rowKey="#{client.id}" value="#{adminCtr.clients}" var="client">
+						<f:facet name="header">
+           			les comptes
       			  </f:facet>
-				<p:column headerText="ID">
-					<h:outputText value="#{userCtr.client.id}" />
-				</p:column>
-				<p:column headerText="Nom">
-					<h:outputLabel value="#{userCtr.client.nom}" />
-				</p:column>
-				<p:column headerText="Prenom">
-					<h:outputLabel value="#{userCtr.client.prenom}" />
-				</p:column>
-				<p:column headerText="E-mail">
-					<h:outputLabel value="#{userCtr.client.email}" />
-				</p:column>
-				<p:column headerText="tel">
-					<h:outputLabel value="#{userCtr.client.tel}" />
-				</p:column>
-				<p:column headerText="Adresse">
-					<h:outputLabel value="#{userCtr.client.adresse}" />
-				</p:column>			
-			</p:dataTable>
-			<p:commandButton value="Activer"/>
-			<br /><br /><br />
-			
-			
-			 <p:dataTable paginator="true" paginatorPosition="bottom" rows="20"
-				id="user" selectionMode="single"
-				rowKey="#{port.id}"
-				selection="#{AdminCtr.selectedUser}" 
-				value="#{AdminCtr.doFindAll()}" var="port">
-				<f:facet name="header">
-           			Supprimer compte
-      			  </f:facet>
-				<p:column headerText="ID">
-					<h:outputText value="#{userCtr.client.id}" />
-				</p:column>
-				<p:column headerText="Nom">
-					<h:outputLabel value="#{userCtr.client.nom}" />
-				</p:column>
-				<p:column headerText="Prenom">
-					<h:outputLabel value="#{userCtr.client.prenom}" />
-				</p:column>
-				<p:column headerText="E-mail">
-					<h:outputLabel value="#{userCtr.client.email}" />
-				</p:column>
-				<p:column headerText="tel">
-					<h:outputLabel value="#{userCtr.client.tel}" />
-				</p:column>
-				<p:column headerText="Adresse">
-					<h:outputLabel value="#{userCtr.client.adresse}" />
-				</p:column>			
-			</p:dataTable>
-			
-			<p:commandButton value="Supprimer"/>
-				</div>
+						<p:column headerText="ID">
+							<h:outputText value="#{client.id}" />
+						</p:column>
+						<p:column headerText="Nom">
+							<h:outputLabel value="#{client.nom}" />
+						</p:column>
+						<p:column headerText="Prenom">
+							<h:outputLabel value="#{client.prenom}" />
+						</p:column>
+						<p:column headerText="E-mail">
+							<h:outputLabel value="#{client.email}" />
+						</p:column>
+						<p:column headerText="tel">
+							<h:outputLabel value="#{client.tel}" />
+						</p:column>
+						<p:column headerText="Adresse">
+							<h:outputLabel value="#{client.adresse}" />
+						</p:column>
+						<p:column headerText="action">
+							<p:commandButton value="supprimer" action="#{adminCtr.doDeleteClient(client)}" update=":form:clientDT"/>
+							<p:commandButton value="activer" update=":form:clientDT"
+								action="#{adminCtr.doApprouveClient(client)}"
+								rendered="#{client.approuved == false}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
 			</div>
-			<!-- cB2 -->
+		</div>
+		<!-- cB2 -->
 
 		<!-- cB -->
 

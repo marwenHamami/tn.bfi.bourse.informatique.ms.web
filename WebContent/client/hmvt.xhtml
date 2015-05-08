@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title"> espace client</ui:define>
+	<ui:define name="title">Historique des Mouvements</ui:define>
 	<ui:define name="content">
 
 	<div id="cA">
@@ -41,31 +41,46 @@
 			</div>
 		<!-- cA -->
 		<div id="cB" align="center">
-			<div class="Ctopright"></div>
+			<h:form>
+       
+
 			<br />
-			<h1>Liste des Portefeuilles</h1> 
+			<h1> Historique des Mouvements</h1> 
 			<br />
-			<p:commandButton value="Ajouter" action="#{portefeuilleCtr.doRedirectToAddPortefeuille}"/>
+			
 			<br/><br/>
-			<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
-				id="portefeuilleDT" selectionMode="single"
-				rowKey="#{port.id}"
-				selection="#{portefeuilleCtr.selectedPrtefeuille}" 
-				value="#{portefeuilleCtr.doFindAll()}" var="port">
+			<p:dataTable paginator="true" paginatorPosition="bottom" rows="20">
+				
 				<f:facet name="header">
-           			Portefeuilles
+           			Historique des Mouvements
       			  </f:facet>
-				<p:column headerText="nom portefeuille">
-					<h:outputText value="#{port.libelle}" />
+				<p:column headerText="Date">
+					<h:outputText value="" />
 				</p:column>
-				<p:column headerText="capital">
-					<h:outputLabel value="#{port.capital}" />
+				<p:column headerText="Operation">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Nom de la valeur">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Prix(DT)">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Quantité">
+					<h:outputLabel value="" />
+				</p:column>
+				<p:column headerText="Portefeuille">
+					<h:outputLabel value="" />
 				</p:column>
 			</p:dataTable>
+			
+</h:form>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->
-		
+	
+
+
 
 	</ui:define>
 </ui:composition>
