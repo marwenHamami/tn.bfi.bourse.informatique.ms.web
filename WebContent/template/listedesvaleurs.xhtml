@@ -5,10 +5,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
+	
 	<h:form style="float :right">
-		<h:outputLabel value="Valeurs marché" />
-		<p:selectOneMenu  onchange="submit()" valueChangeListener="#{valeur_marchéCtr.doRedirectToInfoValeur}">
-			<f:selectItem itemLabel="Select One" itemValue="" />
+		<h:outputLabel value="Valeurs marché" style="" />
+		<p:selectOneMenu onchange="submit()"
+			valueChangeListener="#{valeur_marchéCtr.doRedirectToInfoValeur}">
+			<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
 			<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
 				var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
 				itemValue="#{valeur_marché.id}" />

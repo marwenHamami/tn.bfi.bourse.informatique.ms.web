@@ -8,80 +8,104 @@
 	<ui:define name="content">
 
 		<div id="cA">
-			
+
 			<br></br>
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
-			<h3>Synthése</h3>
-			<h4>
-				<a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a>
-			</h4>
-			<h4>Indices de marché</h4>
-			<h3><a href="#{request.contextPath}/client/liste%20valeurs.jsf">Mes	liste valeurs</a>
+			<h:form>
+				<p:messages id="messages" showDetail="true" />
+
+				<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+					<p:commandButton id="ajax" actionListener="#{watermarkView.search}"
+						value="Rechercher" onclick="PrimeFaces.cleanWatermarks();"
+						oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+					<p:inputText id="keyword" value="#{watermarkView.keyword}"
+						required="true" label="Keyword" />
+					<p:watermark for="keyword" id="watermark" />
+
+
+				</h:panelGrid>
+			</h:form>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
+					des valeurs</a>
 			</h3>
+			<br />
 			<h3>
 				<a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a>
 			</h3>
-			<h3>Achat en Bourse</h3>
-			<h3>Vente en Bourse</h3>
-			<h3><a href="#{request.contextPath}/client/suivreordre.jsf">Suivre vos ordres</a></h3>
-			<h4>Modifier ordre</h4>
-			<h4>Annuler ordre</h4>
-			<h3><a href="#{request.contextPath}/client/hmvt.jsf"> Historique Movement</a></h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/hmvt.jsf"> Historique
+					Movement</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/ordre.jsf"> Achat/Vente</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/suivreordre.jsf">Suivre
+					vos ordres</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
+					liquidité</a>
+			</h3>
 
 		</div>
 		<!-- cA -->
-		<div id="cB">
-			<div class="Ctopright"></div>
-			<div id="cB1">
-			
-				<h:form>
-				<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
-					id="CompteEspece" selectionMode="single" rowKey="#{compte.id}"
-					selection="#{compteEspeceCtr.selectedCompte_espece}"
-					value="#{compteEspeceCtr.compte_especes}" var="compte">
-					<f:facet name="header">
+		<div id="cB" align="center">
+		<br /><br />
+		<h1>Ajout/Retrait liquidité</h1>
+		<br /><br />
+			<h:form>
+				<div id="cB1">
+					<br />
+					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+						<p:outputLabel for="choix" value="Choix:" />
+						<p:selectOneRadio id="choix" value="#{radioView.console}">
+							<f:selectItem itemLabel="Ajout" itemValue="Ajout" />
+							<f:selectItem itemLabel="Retrait" itemValue="Retrait" />
+						</p:selectOneRadio>
+						<h:outputLabel value="Solde" />
+						<p:inputText value="#{compteEspeceCtr.compte_espece.solde}" />
+						<br /><br />
+						<p:commandButton value="Confirmer" update="CompteEspece"
+							action="#{compteEspeceCtr.doAdd}" />
+
+					</h:panelGrid>
+
+				</div>
+				<div id="cB2">
+				<br />
+
+					<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
+						id="CompteEspece" selectionMode="single" rowKey="#{compte.id}"
+						selection="#{compteEspeceCtr.selectedCompte_espece}"
+						value="#{compteEspeceCtr.compte_especes}" var="compte">
+						<f:facet name="header">
            			Compte Espece
       			  </f:facet>
-					<p:column>
-						<h:outputLabel value="#{compte.lib}" />
-					</p:column>
-					<p:column headerText="RIB">
-						<h:outputLabel value="#{compte.RIB}" />
-					</p:column>
-					<p:column headerText="solde">
-						<h:outputLabel value="#{compte.solde}" />
-					</p:column>
-				</p:dataTable>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="libelle" />
-					<p:inputText value="#{compteEspeceCtr.compte_espece.lib}" />
-					<h:outputLabel value="RIB" />
-					<p:inputText value="#{compteEspeceCtr.compte_espece.RIB}" />
-					<h:outputLabel value="solde" />
-					<p:inputText value="#{compteEspeceCtr.compte_espece.solde}" />
-					<p:commandButton value="Ajouter" update="CompteEspece" action="#{compteEspeceCtr.doAdd}" />
-				</h:panelGrid>
+						<p:column>
+							<h:outputLabel value="#{compte.lib}" />
+						</p:column>
+						<p:column headerText="RIB">
+							<h:outputLabel value="#{compte.RIB}" />
+						</p:column>
+						<p:column headerText="solde">
+							<h:outputLabel value="#{compte.solde}" />
+						</p:column>
+					</p:dataTable>
+				</div>
 			</h:form>
-			
-			
-			
-			</div>
 		</div>
+
 		<!-- cB2 -->
 		<!-- cB -->
-		
+
 	</ui:define>
 </ui:composition>

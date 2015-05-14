@@ -30,7 +30,7 @@
 			</div>
 			<!-- search -->
 			<br /> <br />
-			<h1 align="center">Vous pouvez utiliser votre phone pour suivre
+			<h1 align="center">Vous pouvez utiliser votre telephone pour suivre
 				vos valeus</h1>
 			<p class="testimonial">
 				<img src="./ressources/images/images (1).jpg" alt=""
@@ -40,11 +40,27 @@
 		<!-- cA -->
 		<div id="cB">
 			<div id="cB1">
-				<h:panelGrid columns="2">
-					<h:outputLabel value="label" />
+				<h:panelGrid columns="2" border="0">
+					<h:outputLabel value="Valeur" />
 					<h:outputLabel
 						value="#{valeur_marchéCtr.selectedValeur_marché.lib_lon}" />
+					<h:outputLabel value="Code ISIM" />
+					<h:outputLabel
+						value="#{valeur_marchéCtr.selectedValeur_marché.code_isim}" />
+					<h:outputLabel value="Quantité" />
+					<h:outputLabel
+						value="#{valeur_marchéCtr.selectedValeur_marché.qte}" />
+					<h:outputLabel value="Cours réference" />
+					<h:outputLabel
+						value="#{valeur_marchéCtr.selectedValeur_marché.cours_ref}" />
+					<h:outputLabel value="Dernier cours" />
+					<h:outputLabel
+						value="#{valeur_marchéCtr.selectedValeur_marché.dernier_cours}" />
+					<h:outputLabel value="Variation" />
+					<h:outputLabel
+						value="#{valeur_marchéCtr.selectedValeur_marché.variation}%" />
 				</h:panelGrid>
+
 
 			</div>
 			<!-- cB1 -->

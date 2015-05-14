@@ -8,47 +8,63 @@
 	<ui:define name="content">
 
 		<div id="cA">
-					<br></br>
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
-            <br />
-	        <h3><a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste des valeurs</a></h3>
-	         <br />
-			<h3><a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a></h3>	
+			<br></br>
+			<h:form>
+				<p:messages id="messages" showDetail="true" />
+
+				<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+					<p:commandButton id="ajax" actionListener="#{watermarkView.search}"
+						value="Search" onclick="PrimeFaces.cleanWatermarks();"
+						oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+					<p:inputText id="keyword" value="#{watermarkView.keyword}"
+						required="true" label="Keyword" />
+					<p:watermark for="keyword" id="watermark" />
+
+
+				</h:panelGrid>
+			</h:form>
 			<br />
-			<h3><a href="#{request.contextPath}/client/hmvt.jsf"> Historique Movement</a></h3>
+			<h3>
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
+					des valeurs</a>
+			</h3>
 			<br />
-			<h3>Achat/Vente</h3>
-	        <br />
-	        <h3><a href="#{request.contextPath}/client/suivreordre.jsf">Suivre vos ordres</a></h3>
-	        <br />
-	        <h3><a href="#{request.contextPath}/client/ajoutretraitliq.jsf">Ajout/Retrait liquidité</a></h3>
-	        			
-			</div>
+			<h3>
+				<a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/hmvt.jsf"> Historique
+					Movement</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/ordre.jsf"> Achat/Vente</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/suivreordre.jsf">Suivre
+					vos ordres</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
+					liquidité</a>
+			</h3>
+
+		</div>
 
 		<!-- cA -->
 		<div id="cB">
 			<div class="Ctopright"></div>
-			<div id="cB1">
-					
-				</div>
-			</div>
-			<!-- cB2 -->
+			<div id="cB1"></div>
+		</div>
+		<!-- cB2 -->
 
 		<!-- cB -->
-		
+
 
 	</ui:define>
 </ui:composition>

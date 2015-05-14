@@ -6,33 +6,39 @@
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
 	<ui:define name="title">espace client</ui:define>
 	<ui:define name="content">
-<div id="cA" style=" height : 339px;">
-			<div class="Ctopleft"></div>
+		<div id="cA" style="height: 339px;">
+			
 			<br></br>
-			<div id="search">
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Recherche"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
-</div>
-		<!-- search -->
-		<br />
-		<br />
-			<h1 align="center"> Vous pouvez utiliser votre phone pour suivre vos valeus</h1>
+			<div id="search" >
+				<h:form >
+					<p:messages id="messages" showDetail="true" />
+
+					<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+						<p:commandButton id="ajax"
+							actionListener="#{watermarkView.search}" value="Recherche"
+							onclick="PrimeFaces.cleanWatermarks();"
+							oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+						<p:inputText id="keyword" value="#{watermarkView.keyword}"
+							required="true" label="Keyword" />
+						<p:watermark for="keyword" id="watermark" />
+
+
+					</h:panelGrid>
+				</h:form>
+			</div>
+			<!-- search -->
+			<br /> <br />
+			<h1 align="center">vous pouvez accéder à votre compte boursier
+				24/7 en utilisant votre téléphone</h1>
+
 			<p class="testimonial">
-			<img src="./ressources/images/images (1).jpg" alt="" style="height : 166px; width : 236px;"/>
+				<img src="./ressources/images/sabri.jpg" alt=""
+					style="width: 250px; height: 280px;" />
 			</p>
-		</div>		<!-- cA -->
+		</div>
+		<!-- cA -->
 		<div id="cB">
 			<div class="Ctopright"></div>
 			<div id="cB1">
@@ -47,38 +53,43 @@
 								update="validator" />
 						</p:inputText>
 
-						<h:outputLabel for="email" value="email" />
-						
- <p:inputText id="email" value="#{userCtr.client.email}" required="true" label="Email" validatorMessage=" email is not valid">
-    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.(com|net|org|edu|tn)" />
-</p:inputText>
+						<h:outputLabel for="email" value="E-mail" />
 
-						<h:outputLabel value="mot de passe" />
-						<p:password required="true" value="#{userCtr.client.password}" />
+						<p:inputText id="email" value="#{userCtr.client.email}"
+							required="true" label="Email" placeholder="mmmmmmm@ssss.msb"
+							validatorMessage=" email is not valid">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.(com|net|org|edu|tn)" />
+						</p:inputText>
 
-						<h:outputLabel value="confirmation" />
-						<p:password required="true" value="#{userCtr.password}" />
+						<h:outputLabel value="Mot de passe" />
+						<p:password required="true" placeholder="*******"
+							value="#{userCtr.client.password}" />
+
+						<h:outputLabel value="Confirmation" />
+						<p:password required="true" placeholder="*******"
+							value="#{userCtr.password}" />
 
 						<h:outputLabel value="Nom" />
-						<p:inputText required="true" placeholder="nom"
+						<p:inputText required="true" placeholder="Nom"
 							value="#{userCtr.client.nom}" />
 
 						<h:outputLabel value="Prenom" />
-						<p:inputText required="true" placeholder="prenom"
+						<p:inputText required="true" placeholder="Prenom"
 							value="#{userCtr.client.prenom}" />
 
 						<h:outputLabel value="Telephone" />
-						<p:inputText required="true" type="number"
-							placeholder="num de telephone" value="#{userCtr.client.tel}" />
+						<p:inputText required="true" placeholder="Numero de telephone"
+							value="#{userCtr.client.tel}" />
 
 						<h:outputLabel value="Adresse" />
 						<p:inputText required="true" placeholder="address"
 							value="#{userCtr.client.adresse}" />
 					</h:panelGrid>
-					<p:commandButton value="Valider"
+					<p:commandButton value="Inscreption"
 						action="#{userCtr.doRegistration()}" update="growl" />
-							<h:outputLabel id="validator" value="#{userCtr.validator}"
-							style="color:red" />
+					<h:outputLabel id="validator" value="#{userCtr.validator}"
+						style="color:red" />
 				</h:form>
 			</div>
 			<!-- cB1 -->
@@ -87,18 +98,18 @@
 				<div class="about">
 					<h:form>
 						<h:panelGrid columns="2">
-							<h:outputLabel value="login" />
+							<h:outputLabel value="Login" />
 							<p:inputText value="#{userCtr.login}" />
-							<h:outputLabel value="mot de passe" />
+							<h:outputLabel value="Mot de passe" />
 							<p:password value="#{userCtr.password}" />
 						</h:panelGrid>
-						<p:commandButton action="#{userCtr.doLogin()}" value="Envoyer" />
+						<p:commandButton action="#{userCtr.doLogin()}" value="Connexion" />
 					</h:form>
 				</div>
 			</div>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->
-		
+
 	</ui:define>
 </ui:composition>

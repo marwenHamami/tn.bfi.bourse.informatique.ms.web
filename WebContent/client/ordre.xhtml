@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="title"> Ordre </ui:define>
+	<ui:define name="content">
+
+		<div id="cA">
+			<div class="Ctopleft"></div>
+			<br></br>
+			<h:form>
+				<p:messages id="messages" showDetail="true" />
+
+				<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+					<p:commandButton id="ajax" actionListener="#{watermarkView.search}"
+						value="Search" onclick="PrimeFaces.cleanWatermarks();"
+						oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+					<p:inputText id="keyword" value="#{watermarkView.keyword}"
+						required="true" label="Keyword" />
+					<p:watermark for="keyword" id="watermark" />
+
+
+				</h:panelGrid>
+			</h:form>
+
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
+					des valeurs</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/hmvt.jsf"> Historique
+					Movement</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/ordre.jsf"> Achat/Vente</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/suivreordre.jsf">Suivre
+					vos ordres</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
+					liquidité</a>
+			</h3>
+
+
+		</div>
+		<!-- cA -->
+		<div id="cB">
+			<h1>
+				<font color="#0ABAB5">Achat En Bourse </font>
+			</h1>
+			<br></br>
+			<h:form style="float :center">
+				<p:growl id="growl" showDetail="true" sticky="true" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel value="Valeurs marché" />
+					<p:selectOneMenu onchange="submit()"
+						valueChangeListener="#{valeur_marchéCtr}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
+							var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
+							itemValue="#{valeur_marché.id}" />
+					</p:selectOneMenu>
+					<h:outputLabel value="Portefeuille" />
+					<p:selectOneMenu onchange="submit()"
+						valueChangeListener="#{portefeuilleCtr.doFindAll()}">
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{portefeuilleCtr.portefeuilles}"
+							var="Portefeuille" itemLabel="#{Portefeuille.libelle}"
+							itemValue="#{Portefeuille.id}" />
+					</p:selectOneMenu>
+					<h:outputLabel value="Valorisation" />
+
+					<input type="text" disabled="disabled" style="width: 150px;" />
+					<h:outputLabel value="Quantité(s)" />
+					<p:inputText required="true" />
+					<h:outputLabel value="Date saisi" />
+
+					<input type="text" disabled="disabled" style="width: 150px;" />
+					
+					<h:outputLabel value="Type" />
+					<p:selectOneMenu onchange="submit()">
+					<f:selectItem itemLabel="type d'ordre" itemValue="" />
+						<f:selectItem itemLabel="ATP" itemValue="ATP" />
+						<f:selectItem itemLabel="Limité" itemValue="Limité" />
+					</p:selectOneMenu>
+					 <p:outputLabel for="popup" value="Date de validité" />
+        <p:calendar id="popup" value="#{calendarView.date2}" />
+        
+            <h:outputText value="#{calendarView.date2}" required="true">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>	</h:panelGrid>	</h:form><br></br><br></br>
+            <p:commandButton value="Valider"/>
+             <p:commandButton  value="annuler" />
+							
+			
+		
+		</div>
+		<!-- cB -->
+
+
+
+
+	</ui:define>
+</ui:composition>

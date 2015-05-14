@@ -4,10 +4,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">Ajout/Retrait liquidité</ui:define>
+	<ui:define name="title"> Ajouter portefeuille </ui:define>
 	<ui:define name="content">
 
 		<div id="cA">
+			<div class="Ctopleft"></div>
 			<br></br>
 			<h:form>
 				<p:messages id="messages" showDetail="true" />
@@ -25,6 +26,7 @@
 
 				</h:panelGrid>
 			</h:form>
+
 			<br />
 			<h3>
 				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
@@ -54,27 +56,26 @@
 					liquidité</a>
 			</h3>
 
-		</div>
 
+		</div>
 		<!-- cA -->
 		<div id="cB">
 
-			<div id="cB1">
-				<h:form>
-					<h:outputLabel value="Portefeuille" />
-					<h:selectOneMenu value="#{portefeuilleCtr.portefeuilles.get(id)}">
-						<f:selectItem itemLabel="Select One" itemValue="" />
-						<f:selectItems value="#{portefeuilleCtr.portefeuille}"
-							var="portefeuille" itemLabel="#{portefeuille.libelle}"
-							itemValue="#{portefeuille.id}" />
-					</h:selectOneMenu>
-				</h:form>
-
-			</div>
+			<br />
+			<h1 align="center">Ajouter Liste</h1>
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="libelle" />
+					<p:inputText value="#{listeCtr.liste.libile}" />
+				</h:panelGrid>
+				<p:commandButton value="Ajouter"
+					action="#{listeCtr.doAddListe()}" />
+			</h:form>
+			<!-- cB2 -->
 		</div>
-		<!-- cB2 -->
-
 		<!-- cB -->
+
+
 
 
 	</ui:define>

@@ -8,116 +8,129 @@
 	<ui:define name="content">
 		<div id="cA" align="left">
 			<br></br>
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
-			<h3>Synthése</h3>
-			<h4><a href="#{request.contextPath}/client/valeurs.jsf">Valeurs</a></h4>
-			<h4>Indices de marché</h4>
-            <h3><a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste des valeurs</a></h3>
-			<h3><a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a></h3>			<h3>Achat en Bourse</h3>
-			<h4>Modifier ordre</h4>
-			<h4>Annuler ordre</h4>
-			<h3>Vente en Bourse</h3>
-			<h3><a href="#{request.contextPath}/client/suivreordre.jsf">Suivre vos ordres</a></h3>
-			<h4>Modifier ordre</h4>
-			<h4>Annuler ordre</h4>
-			<h3><a href="#{request.contextPath}/client/hmvt.jsf"> Historique Movement</a></h3>
-			</div>
-			
+			<h:form>
+				<p:messages id="messages" showDetail="true" />
+
+				<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+					<p:commandButton id="ajax" actionListener="#{watermarkView.search}"
+						value="Search" onclick="PrimeFaces.cleanWatermarks();"
+						oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+					<p:inputText id="keyword" value="#{watermarkView.keyword}"
+						required="true" label="Keyword" />
+					<p:watermark for="keyword" id="watermark" />
+
+
+				</h:panelGrid>
+			</h:form>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
+					des valeurs</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/index.jsf">Portefeuilles</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/hmvt.jsf"> Historique
+					Movement</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/ordre.jsf"> Achat/Vente</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/suivreordre.jsf">Suivre
+					vos ordres</a>
+			</h3>
+			<br />
+			<h3>
+				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
+					liquidité</a>
+			</h3>
+		</div>
+
 		<div id="cB" align="center">
-			<div id="cB1" style=" width : 666px;">
-			
- 
-			
-			<br />
-			<br />
-			    <h1>Liste De Valeur Personnalisée</h1>
-			  <br/><br/>
-		<h:form>  
-    <p:growl id="messages" showDetail="true" />
- 
-    <p:toolbar>
-        <f:facet name="left">
-            <p:commandButton type="button" value="Nouvelle Liste" icon="ui-icon-document" />
-           <span class="ui-separator">
-                <span class="ui-icon ui-icon-grip-dotted-vertical" />
-            </span>
-            
+			<div id="cB1" style="width: 666px;">
 
-            <p:commandButton value="Supprimer valeur" type="button" title="Supprimer" icon="ui-icon-trash" />
-            <p:commandButton value="Imprimer" type="button" title="Imprimer" icon="ui-icon-print" />
-        </f:facet>
- 
-        <f:facet name="right">
-            <p:menuButton value="Choisir Liste">
-                <p:menuitem value="Delete" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
-                <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink" />
-            </p:menuButton>
-        </f:facet>
-        
-    </p:toolbar>
-     <p:dataTable rows="20">
-				<p:column headerText="Valeur">
-					<h:outputText value="" />
-				</p:column>
-				<p:column headerText="Dernier cours">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="var(%)">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Ouverture">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="+Haut">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="+Bas">
-					<h:outputLabel value="" />
-				</p:column>			
-				<p:column headerText="Volume">
-					<h:outputLabel value="" />
-				</p:column>		
-			</p:dataTable>
-</h:form>
-<p:commandButton value="Supprimer liste" style=""  />
-<br/>
-<h:form>     
-    <p:growl id="messages" showDetail="true" />
- 
-    <p:toolbar>
-        <f:facet name="left">
-            <p:menuButton value="Type">
-                <p:menuitem value="Action" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
-                <p:menuitem value="Obligation" url="http://www.primefaces.org" icon="ui-icon-extlink" />
-                 <p:menuitem value="Droit" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
-            </p:menuButton>
-        </f:facet>
-  <f:facet name="right">
-            <p:menuButton value="Ajouter valeur">
-                <p:menuitem value="Biat" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
-                <p:menuitem value="ATB" url="http://www.primefaces.org" icon="ui-icon-extlink" />
-                 <p:menuitem value="UBCI" actionListener="#{toolbarView.delete}" ajax="false" icon="ui-icon-close" />
-            </p:menuButton>
-        </f:facet>
-    </p:toolbar>
-</h:form>
 
-		
-				</div>
+
+				<br /> <br />
+				<h1>Liste Des Valeurs</h1>
+				<br /> <br />
+				<h:form>
+					<p:toolbar>
+						<f:facet name="left">
+							<p:commandButton value="Nouvelle Liste" icon="ui-icon-document"
+								action="#{listeCtr.doRedirectToAddListe()}" />
+							<span class="ui-separator"> <span
+								class="ui-icon ui-icon-grip-dotted-vertical" />
+							</span>
+
+
+							<p:commandButton value="Supprimer valeur" title="Supprimer"
+								icon="ui-icon-trash" />
+
+							<p:commandButton value="Imprimer" title="Imprimer"
+								icon="ui-icon-print" />
+						</f:facet>
+
+						<f:facet name="right">
+							<p:selectOneMenu onchange="submit()">
+								<f:selectItem itemLabel="Selectionner liste" itemValue="" />
+								<f:selectItems value="#{listeCtr.liste}" var="liste"
+									itemLabel="#{liste.libile }" itemValue="#{liste.id}" />
+							</p:selectOneMenu>
+
+						</f:facet>
+
+					</p:toolbar>
+					<p:dataTable rows="20">
+						<p:column headerText="Valeur">
+							<h:outputText value="" />
+						</p:column>
+						<p:column headerText="Dernier cours">
+							<h:outputLabel value="" />
+						</p:column>
+						<p:column headerText="var(%)">
+							<h:outputLabel value="" />
+						</p:column>
+						<p:column headerText="Ouverture">
+							<h:outputLabel value="" />
+						</p:column>
+						<p:column headerText="+Haut">
+							<h:outputLabel value="" />
+						</p:column>
+						<p:column headerText="+Bas">
+							<h:outputLabel value="" />
+						</p:column>
+						<p:column headerText="Volume">
+							<h:outputLabel value="" />
+						</p:column>
+					</p:dataTable>
+
+					<p:commandButton value="Supprimer liste"
+						action="#{listeCtr.dodeleteListe()}" />
+					<br />
+					<p:toolbar>
+						<f:facet name="right">
+							<p:selectOneMenu onchange="submit()">
+								<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
+								<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
+									var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
+									itemValue="#{valeur_marché.id}" />
+							</p:selectOneMenu>
+						</f:facet>
+					</p:toolbar>
+				</h:form>
+
+
 			</div>
-		
+		</div>
+
 	</ui:define>
 </ui:composition>
