@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title><ui:insert name="title"></ui:insert></title>
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/ressources/css/style.css" />
+</h:head>
+<body>
+	<div id="daddy">
+		<div id="header">
+			<ui:include src="/template2/header.xhtml" />
+			
+		</div>
+		<div>
+			<ui:include src="/template2/listedesvaleurs.xhtml" />
+		</div>
+		<div style="clear: both;"></div>
+		<br/>
+		<div id="content">
+		
+			<ui:insert name="content">
+			
+			</ui:insert>
+		</div>
+	</div>
+	<div id="properspace" style=" height : 239px;"></div>
+	<div id="footer" style=" height : 35px;">
+		<ui:include src="/template2/footer.xhtml" />
+	</div>
+</body>
+</html>

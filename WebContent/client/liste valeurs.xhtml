@@ -3,7 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
 	<ui:define name="title">Listes des valeurs</ui:define>
 	<ui:define name="content">
 		<div id="cA" align="left">
@@ -56,13 +56,11 @@
 
 		<div id="cB" align="center">
 			<div id="cB1" style="width: 666px;">
-
-
-
 				<br /> <br />
-				<h1>Liste Des Valeurs</h1>
+				<h1 style="font-style: italic; color: black;">Listes Des
+					Valeurs de #{userCtr.client.nom} #{userCtr.client.prenom}</h1>
 				<br /> <br />
-				<h:form>
+				<h:form id="form">
 					<p:toolbar>
 						<f:facet name="left">
 							<p:commandButton value="Nouvelle Liste" icon="ui-icon-document"
@@ -80,18 +78,19 @@
 						</f:facet>
 
 						<f:facet name="right">
-							<p:selectOneMenu onchange="submit()">
+
+							<p:selectOneMenu value="#{listeCtr.id_liste}">
 								<f:selectItem itemLabel="Selectionner liste" itemValue="" />
-								<f:selectItems value="#{listeCtr.liste}" var="liste"
+								<f:selectItems value="#{listeCtr.listes}" var="liste"
 									itemLabel="#{liste.libile }" itemValue="#{liste.id}" />
 							</p:selectOneMenu>
-
+							<p:commandButton value="afficher" update=":form:listDT" action="#{listeCtr.doAfficher}" />
 						</f:facet>
 
 					</p:toolbar>
-					<p:dataTable rows="20">
+					<p:dataTable id="listDT" rows="20" value="#{listeCtr.listValeurMarche}" var="list">
 						<p:column headerText="Valeur">
-							<h:outputText value="" />
+							<h:outputText value="#{list.lib_lon}" />
 						</p:column>
 						<p:column headerText="Dernier cours">
 							<h:outputLabel value="" />
@@ -118,12 +117,14 @@
 					<br />
 					<p:toolbar>
 						<f:facet name="right">
-							<p:selectOneMenu onchange="submit()">
+							
+							<p:selectOneMenu value="#{listeCtr.id_valeur}">
 								<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
 								<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
 									var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
 									itemValue="#{valeur_marché.id}" />
 							</p:selectOneMenu>
+							<p:commandButton value="Ajouter" update=":form:listDT" action="#{listeCtr.doAjouter}" />
 						</f:facet>
 					</p:toolbar>
 				</h:form>

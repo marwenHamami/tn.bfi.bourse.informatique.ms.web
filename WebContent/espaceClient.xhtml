@@ -4,13 +4,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">espace client</ui:define>
+	<ui:define name="title">espace membre</ui:define>
 	<ui:define name="content">
 		<div id="cA" style="height: 339px;">
-			
+
 			<br></br>
-			<div id="search" >
-				<h:form >
+			<div id="search">
+				<h:form>
 					<p:messages id="messages" showDetail="true" />
 
 					<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
@@ -89,7 +89,7 @@
 					<p:commandButton value="Inscreption"
 						action="#{userCtr.doRegistration()}" update="growl" />
 					<h:outputLabel id="validator" value="#{userCtr.validator}"
-						style="color:red" />
+						style="color:white" />
 				</h:form>
 			</div>
 			<!-- cB1 -->

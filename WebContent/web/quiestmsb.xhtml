@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
+	<ui:define name="title">Quis somme-nous </ui:define>
+	<ui:define name="content">
+
+		<div id="cA" style="height: 339px;">
+			<div class="Ctopleft"></div>
+			<br></br>
+			<div id="search">
+				<h:form>
+					<p:messages id="messages" showDetail="true" />
+
+					<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+						<p:commandButton id="ajax"
+							actionListener="#{watermarkView.search}" value="Recherche"
+							onclick="PrimeFaces.cleanWatermarks();"
+							oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+						<p:inputText id="keyword" value="#{watermarkView.keyword}"
+							required="true" label="Keyword" />
+						<p:watermark for="keyword" id="watermark" />
+
+
+					</h:panelGrid>
+				</h:form>
+			</div>
+			<!-- search -->
+			<br /> <br />
+			<h1 align="center">vous pouvez accéder à votre compte boursier
+				24/7 en utilisant votre téléphone</h1>
+
+			<p class="testimonial">
+				<img src="../ressources/images/sabri.jpg" alt=""
+					style="width: 250px; height: 280px;" />
+			</p>
+		</div>
+		<!-- cA -->
+		<div id="cB">
+			<div class="Ctopright"></div>
+			<div id="cB1">
+
+				<h1>MSBOURSE:</h1>
+				<div class="news">
+					<h5>
+						MSB est officiellement actif depuis le 1 février 2015, est une
+						bourse basée à Tunis (Tunisie). Elle est responsable de la gestion
+						et de la promotion du marché tunisien des valeurs mobilières et
+						ses actionnaires sont les sociétés d'intermédiation en bourse. Son
+						principal indice boursier est le Tunindex.
+						<p>pour avoir un compte boursier lié directement avec un
+							compte bancaire et pour eliminer l'intermédiaire qui se place
+							entre le client et la bourse, MSB est la premiere bourse
+							tunisienne qui prend se charge direct et aussi la 3'eme sur
+							l'echelle mondial.</p>
+						<p>
+							La Bourse MSB qualifie le fait de pouvoir accéder à de multiples
+							plates formes boursières par l'intermédiaire des banques ou des
+							courtiers en ligne.<bR></bR>
+							<br></br> L'investisseur en bourse peut ainsi aisément collecter
+							en temps réél de multiples informations boursières (fluctuation
+							de cours) et financières (résultats et perspectives des
+							sociétés). <br></br>
+							<br></br> Les investisseurs peuvent trouver un courtier en ligne
+							qui correspond exactement à leur profil.<br></br>
+							<br></br> La bourse MSB permet aussi aux investisseurs douvrir
+							des comptes titres et d'acheter ou vendre avec la plus grande
+							facilité.<br></br>
+							<br></br>
+						</p>
+					</h5>
+
+				</div>
+
+
+			</div>
+			<!-- cB1 -->
+			<div id="cB2">
+
+
+				<ul>
+					<li><img src="../ressources/images/qui.jpg" alt=""
+						style="height: 265px; width: 270px;" /></li>
+
+				</ul>
+
+
+
+
+
+				<li><img src="../ressources/images/qui2.jpg" alt=""
+					style="height: 220px; width: 270px;" /></li>
+
+
+			</div>
+			<!-- newsletter -->
+		</div>
+		<!-- cB2 -->
+
+		<!-- cB -->
+
+	</ui:define>
+</ui:composition>

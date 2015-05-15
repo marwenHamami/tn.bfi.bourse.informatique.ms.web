@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
+	<ui:define name="title"> actualites</ui:define>
+	<ui:define name="content">
+
+			<div id="cA" style=" height : 339px;">
+			<div class="Ctopleft"></div>
+			<br></br>
+			<div id="search" >
+		<h:form>
+    <p:messages id="messages" showDetail="true"/>
+ 
+    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+        
+    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Recherche"
+                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+        
+        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
+        <p:watermark for="keyword"  id="watermark" />
+    
+ 
+   </h:panelGrid>
+</h:form>
+</div>
+		<!-- search -->
+		<br />
+		<br />
+			<h1 align="center">vous pouvez accéder à votre compte boursier 24/7 en utilisant votre téléphone</h1>
+			
+			<p class="testimonial">
+			<img src="../ressources/images/sabri.jpg" alt="" style="width : 250px; height : 280px;"/>
+			</p>
+		</div>
+		<!-- cA -->
+		<div id="cB">
+			<div class="Ctopright"></div>
+			<div id="cB1">
+		
+				<h3> Actualités</h3>
+				<div class="news"><a href="http://www.bvmt.com.tn/fr/content/monoprix-communication-financi%C3%A8re"><div class="savoir-plus-actu">
+	</div></a>
+					
+					
+					
+					
+					
+					
+							<div id="actus-list"><div id="list-actu01" class=""><p><span class="orange">20/04/2015</span>
+	<span class="orange2">MONOPRIX - Communication Financière</span> </p>
+	La société MONOPRIX tiendra une communication financière le mardi 21 Avril 2015 à 15h00, au siège de la Bourse 
+	des Valeurs Mobilières de Tunis.
+	</div>
+	<div id="list-actu01" class="midl"><p><span class="orange">17/04/2015</span><span class="orange2">Actions d'éducation
+	 boursière</span> </p>
+	La Bourse de Tunis poursuit ses actions de promotion de la culture boursière auprès des lycéens et étudiants
+	.<a href="http://www.bvmt.com.tn/fr/content/actions-d%C3%A9ducation-boursi%C3%A8re-14"></a></div></div>
+	
+	<p>
+	
+	
+	<div class="savoir-plus-actu"></div>
+	<div id="list-actu01" class=""><p>
+	<span class="orange">17/04/2015</span><span class="orange2">
+	Une délégation de l’Ambassade des USA à la Bourse de Tunis</span>
+	 </p>La Bourse de Tunis a reçu le vendredi 17 avril 2015 l’équipe de la Section Commerciale 
+	 et Economique de l’Ambassade des Etats-Unis d'Amérique en Tunisie.
+	 <a href="http://www.bvmt.com.tn/fr/content/une-d%C3%A9l%C3%A9gation-de-l%E2%80%99ambassade-des-usa-%C3%A0-la-bourse-de-tunis">
+	 <div class="savoir-plus-actu"></div></a>
+	 </div>
+	</p>
+	
+	<p>	<div id="list-actu01" class=""><p><span class="orange">17/04/2015</span>
+<span class="orange2">Une délégation de l’Ambassade des USA à la Bourse de Tunis</span> 
+</p>La Bourse de Tunis a reçu le vendredi 17 avril 2015 l’équipe de la Section Commerciale
+ et Economique de l’Ambassade des Etats-Unis d'Amérique en Tunisie.
+<a href="http://www.bvmt.com.tn/fr/content/une-d%C3%A9l%C3%A9gation-de-l%E2%80%99ambassade-des-usa-%C3%A0-la-bourse-de-tunis">
+<div class="savoir-plus-actu"></div></a>		</div></p>
+<p>
+<div id="list-actu01" class=""><p><span class="orange">07/04/2015</span>
+<span class="orange2">TPR - Communication financière le 13 Avril 2015</span>
+ </p>La TPR tiendra une communication financière le lundi 13 Avril 2015, au siège de la Bourse des Valeurs Mobilières de Tunis.
+<a href="http://www.bvmt.com.tn/fr/content/tpr-communication-financi%C3%A8re-le-13-avril-2015">
+<div class="savoir-plus-actu"></div></a></div>
+</p>
+
+							
+				</div>
+				
+				
+				
+				</div>
+			<!-- cB1 -->
+			<div id="cB2">
+				<h3>Cours </h3>
+				
+					<ul>
+						<li><img src="../ressources/images/chart1.jpg" alt="" style="height : 265px; width : 270px;"/> </li>
+						
+					</ul>
+				<br></br><br></br><br></br><br></br>
+				
+			
+				<div id="newsletter">
+					<span id="newsletter-title"><a
+						href="">Newsletter</a></span>
+					<p id="newsletter-text">
+						<a href="">Click here to
+							register for MSbourse's monthly newsletter</a>
+					</p>
+				</div>
+			</div>
+			<!-- cB2 -->
+		</div>
+		<!-- cB -->
+		
+
+
+
+	</ui:define>
+</ui:composition>

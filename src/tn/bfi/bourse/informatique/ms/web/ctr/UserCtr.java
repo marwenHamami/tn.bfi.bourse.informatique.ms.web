@@ -40,9 +40,9 @@ public class UserCtr {
 			password = "";
 			return "/client/index.jsf?faces-redirect=true";
 		} else if (userEJBLocal.authentification(login, password) instanceof Admin) {
-			login = "";
-			password = "";
-			return "/admin/index.jsf?faces-redirect=true";
+			login = "admin";
+			password = "admin";
+			return "/admin/operationsurcompte.jsf?faces-redirect=true";
 		} else {
 			login = "";
 			password = "";

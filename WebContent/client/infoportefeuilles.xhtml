@@ -3,27 +3,29 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
 	<ui:define name="title">Portfeuille</ui:define>
 	<ui:define name="content">
 
-	<div id="cA">
+		<div id="cA">
 			<div class="Ctopleft"></div>
 			<br></br>
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
+			<h:form>
+				<p:messages id="messages" showDetail="true" />
+
+				<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+					<p:commandButton id="ajax" actionListener="#{watermarkView.search}"
+						value="Search" onclick="PrimeFaces.cleanWatermarks();"
+						oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+					<p:inputText id="keyword" value="#{watermarkView.keyword}"
+						required="true" label="Keyword" />
+					<p:watermark for="keyword" id="watermark" />
+
+
+				</h:panelGrid>
+			</h:form>
 			<br />
 			<h3>
 				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
@@ -52,67 +54,73 @@
 				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
 					liquidité</a>
 			</h3>
-			
-			
-			
-			</div>
+
+
+
+		</div>
 		<!-- cA -->
 		<div id="cB" align="center">
 			<h:form>
-       
 
-			<br />
-			<h1> Information Portefeuille</h1> 
-			<br />
-			
-			 <h:panelGrid columns="4" cellpadding="5" style="height : 23px; width : 604px;">
-           
- 
-            <p:outputLabel for="extended" value="Portefeuille" />
-            <p:outputLabel id="extended" required="true" />
- 
-            <p:outputLabel for="number" value="Valorisation:" />
-            <p:outputLabel id="number" required="true"/>
-        </h:panelGrid>
 
-			<br/><br/>
-			<p:dataTable paginator="true" paginatorPosition="bottom" rows="20">
-				
-				<f:facet name="header">
+				<br />
+				<h1>Information Portefeuille</h1>
+				<br />
+
+				<h:panelGrid columns="4" cellpadding="5"
+					style="height : 23px; width : 604px;">
+
+
+					<p:outputLabel for="extended" value="Portefeuille" />
+					<p:outputLabel id="extended" required="true" />
+
+					<p:outputLabel for="number" value="Valorisation:" />
+					<p:outputLabel id="number" required="true" />
+				</h:panelGrid>
+
+				<br />
+				<br />
+				<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
+					value="#{portefeuilleCtr.executions}" var="ex">
+
+					<f:facet name="header">
            			Information Portefeuille
       			  </f:facet>
-				<p:column headerText="Valeur">
-					<h:outputText value="" />
-				</p:column>
-				<p:column headerText="Prix revient">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Quantité">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Cours">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Var.Jour">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Capital.initial">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Gain(DT)">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Gain(%)">
-					<h:outputLabel value="" />
-				</p:column>
-			</p:dataTable>
-			<p:commandButton  value="Acheter" />
-			<p:commandButton  value="Vendre" />
+					<p:column headerText="Valeur">
+						<h:outputText value="#{ex.ordre.valeur_marché.lib_lon}" />
+					</p:column>
+					<p:column headerText="Prix revient">
+						<h:outputLabel value="#{ex.ordre.montanat_net}" />
+					</p:column>
+					<p:column headerText="Quantité">
+						<h:outputLabel value="#{ex.ordre.qt_initial}" />
+					</p:column>
+					<p:column headerText="Cours">
+						<h:outputLabel value="#{ex.ordre.valeur_marché.cours_ref}" />
+					</p:column>
+					<p:column headerText="Var.Jour">
+						<h:outputLabel value="" />
+					</p:column>
+					<p:column headerText="Capital.initial">
+						<h:outputLabel value="" />
+					</p:column>
+					<p:column headerText="Gain(DT)">
+						<h:outputLabel value="" />
+					</p:column>
+					<p:column headerText="Gain(%)">
+						<h:outputLabel value="" />
+					</p:column>
+				</p:dataTable>
+				<h4>
+					<a href="#{request.contextPath}/client/ordre.jsf">Acheter</a>
+					&nbsp;&nbsp;&nbsp;/ &nbsp;&nbsp;&nbsp; <a
+						href="#{request.contextPath}/client/ordre.jsf">Vendre</a>
+				</h4>
 			</h:form>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->
-	
+
 
 
 

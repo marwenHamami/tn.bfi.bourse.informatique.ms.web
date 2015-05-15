@@ -3,27 +3,29 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
-	<ui:define name="title">Historique des Mouvements</ui:define>
+	xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
+	<ui:define name="title">Historique Mouvements</ui:define>
 	<ui:define name="content">
 
-	<div id="cA">
+		<div id="cA">
 			<div class="Ctopleft"></div>
 			<br></br>
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Search"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
+			<h:form>
+				<p:messages id="messages" showDetail="true" />
+
+				<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+					<p:commandButton id="ajax" actionListener="#{watermarkView.search}"
+						value="Search" onclick="PrimeFaces.cleanWatermarks();"
+						oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+					<p:inputText id="keyword" value="#{watermarkView.keyword}"
+						required="true" label="Keyword" />
+					<p:watermark for="keyword" id="watermark" />
+
+
+				</h:panelGrid>
+			</h:form>
 			<br />
 			<h3>
 				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
@@ -52,50 +54,52 @@
 				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
 					liquidité</a>
 			</h3>
-			
-			
-			
-			</div>
+
+
+
+		</div>
 		<!-- cA -->
 		<div id="cB" align="center">
 			<h:form>
-       
 
-			<br />
-			<h1> Historique des Mouvements</h1> 
-			<br />
-			
-			<br/><br/>
-			<p:dataTable paginator="true" paginatorPosition="bottom" rows="20">
-				
-				<f:facet name="header">
+
+				<br />
+				<h1>Historique des Mouvements</h1>
+				<br />
+
+				<br />
+				<br />
+				<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
+					value="#{hmvtCtr.executions}" var="hmvt">
+
+					<f:facet name="header">
            			Historique des Mouvements
       			  </f:facet>
-				<p:column headerText="Date">
-					<h:outputText value="" />
-				</p:column>
-				<p:column headerText="Operation">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Nom de la valeur">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Prix(DT)">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Quantité">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Portefeuille">
-					<h:outputLabel value="" />
-				</p:column>
-			</p:dataTable>
-			
-</h:form>
+					<p:column headerText="Date">
+						<h:outputText value="#{hmvt.date}" />
+					</p:column>
+					<p:column headerText="Operation">
+						<h:outputLabel value="#{hmvt.ordre.canal_saisie}" />
+					</p:column>
+					<p:column headerText="Nom de la valeur">
+						<h:outputLabel value="#{hmvt.ordre.valeur_marché.lib_lon}" />
+					</p:column>
+					<p:column headerText="Prix(DT)">
+						<h:outputLabel value="" />
+					</p:column>
+					<p:column headerText="Quantité">
+						<h:outputLabel value="" />
+					</p:column>
+					<p:column headerText="Portefeuille">
+						<h:outputLabel value="" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->
-	
+
 
 
 

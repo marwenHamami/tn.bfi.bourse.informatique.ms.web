@@ -3,7 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
 	<ui:define name="title"> Ordre </ui:define>
 	<ui:define name="content">
 
@@ -59,61 +59,72 @@
 
 		</div>
 		<!-- cA -->
-		<div id="cB">
+		<div id="cB" align="center">
 			<h1>
 				<font color="#0ABAB5">Achat En Bourse </font>
 			</h1>
 			<br></br>
-			<h:form style="float :center">
+			<h:form id="form" style="float :center">
 				<p:growl id="growl" showDetail="true" sticky="true" />
-				<h:panelGrid columns="2" cellpadding="5">
+				<h:panelGrid columns="1" cellpadding="5">
 					<h:outputLabel value="Valeurs marché" />
-					<p:selectOneMenu onchange="submit()"
-						valueChangeListener="#{valeur_marchéCtr}">
-						<f:selectItem itemLabel="Select One" itemValue="" />
+					<p:selectOneMenu value="#{ordreCtr.id_valeur}">
+						<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
 						<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
 							var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
 							itemValue="#{valeur_marché.id}" />
+						<p:ajax event="change" update=":form:montant"
+							listener="#{ordreCtr.doCalculerMontant}" />
 					</p:selectOneMenu>
-					<h:outputLabel value="Portefeuille" />
-					<p:selectOneMenu onchange="submit()"
-						valueChangeListener="#{portefeuilleCtr.doFindAll()}">
-						<f:selectItem itemLabel="Select One" itemValue="" />
+					<br />
+					<h:outputLabel value="portefeuille" />
+					<p:selectOneMenu value="#{ordreCtr.id_portefeuille}">
+						<f:selectItem itemLabel="Selectionner un portefeuille"
+							itemValue="" />
 						<f:selectItems value="#{portefeuilleCtr.portefeuilles}"
 							var="Portefeuille" itemLabel="#{Portefeuille.libelle}"
 							itemValue="#{Portefeuille.id}" />
+							<p:ajax event="change" update="@this" />
 					</p:selectOneMenu>
-					<h:outputLabel value="Valorisation" />
-
-					<input type="text" disabled="disabled" style="width: 150px;" />
+					<br />
 					<h:outputLabel value="Quantité(s)" />
-					<p:inputText required="true" />
+					<p:inputText value="#{ordreCtr.demande.qt_initial}" required="true">
+						<f:ajax listener="#{ordreCtr.doCalculerMontant()}"
+							render=":form:montant" />
+					</p:inputText>
+					<br />
+
+
+					<h:outputLabel value="montant" />
+					<p:inputText type="text" disabled="disabled" id="montant"
+						value="#{ordreCtr.demande.montant_net}" style="width: 150px;" />
+					<br />
+					<br />
+
 					<h:outputLabel value="Date saisi" />
 
 					<input type="text" disabled="disabled" style="width: 150px;" />
-					
-					<h:outputLabel value="Type" />
-					<p:selectOneMenu onchange="submit()">
-					<f:selectItem itemLabel="type d'ordre" itemValue="" />
+					<br />
+					<br />
+					<p:selectOneMenu>
+						<f:selectItem itemLabel="type d'ordre" itemValue="" />
 						<f:selectItem itemLabel="ATP" itemValue="ATP" />
 						<f:selectItem itemLabel="Limité" itemValue="Limité" />
 					</p:selectOneMenu>
-					 <p:outputLabel for="popup" value="Date de validité" />
-        <p:calendar id="popup" value="#{calendarView.date2}" />
-        
-            <h:outputText value="#{calendarView.date2}" required="true">
-                <f:convertDateTime pattern="MM/dd/yyyy" />
-            </h:outputText>	</h:panelGrid>	</h:form><br></br><br></br>
-            <p:commandButton value="Valider"/>
-             <p:commandButton  value="annuler" />
-							
-			
-		
+
+					<br />
+					<p:outputLabel for="popup" value="Date de validité" />
+					<p:calendar id="popup" value="#{calendarView.date2}" />
+
+					<h:outputText value="#{ordreCtr.ordre.date_validité}" required="true">
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+					</h:outputText>
+				</h:panelGrid>
+			</h:form>
+			<br></br> <br></br>
+			<p:commandButton value="Valider"  action="#{ordreCtr.doAdd()}"/>
+			<p:commandButton value="annuler" />
 		</div>
 		<!-- cB -->
-
-
-
-
 	</ui:define>
 </ui:composition>

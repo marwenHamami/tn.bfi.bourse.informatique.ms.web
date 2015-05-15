@@ -2,6 +2,7 @@ package tn.bfi.bourse.informatique.ms.web.ctr;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -23,75 +24,94 @@ public class Valeur_marchéCtr {
 	private Valeur_marché valeur_marchés = new Valeur_marché();
 	private int id;
 
+	private List<Valeur_marché> hausse = new ArrayList<Valeur_marché>();
+	private List<Valeur_marché> bass = new ArrayList<Valeur_marché>();
+
 	@EJB
 	Valeur_marchéEJBLocal valeur_marchéLocal;
 
 	@PostConstruct
 	private void init() {
 		valeur_marché = valeur_marchéLocal.findAll();
-//		 Valeur_marché valeur_marché = new Valeur_marché();
-//
-//		 valeur_marché.setCode_interne((long) 500520003);
-//		 valeur_marché.setLib_lon("ATB");
-//		 valeur_marché.setCours_ref(23.20);
-//		 valeur_marché.setDernier_cours(23.2);
-//	     valeur_marché.setCode_isim((long) 65258652);
-//		 valeur_marché.setQte(650.3);
-//		 valeur_marché.setDate_dernier_cours(null);
-//		 valeur_marché.setVariation(0.8);
-//		 valeur_marchéLocal.add(valeur_marché);
-//		 valeur_marché = new Valeur_marché();
-//		
-//
-//		 valeur_marché.setCode_interne((long) 100430003);
-//		 valeur_marché.setLib_lon("BFI");
-//		 valeur_marché.setCours_ref(83.00);
-//		 valeur_marché.setDernier_cours(92.2);
-//		 valeur_marché.setCode_isim((long) 851815124);
-//		 valeur_marché.setQte(60.3);
-//		 valeur_marché.setDate_dernier_cours(null);
-//		 valeur_marché.setVariation(0.5);
-//		
-//		 valeur_marchéLocal.add(valeur_marché);
-//		 valeur_marché = new Valeur_marché();
-//		
-//
-//		 valeur_marché.setCode_interne((long) 500520003);
-//		 valeur_marché.setLib_lon("Tunisair");
-//		 valeur_marché.setCours_ref(3.20);
-//     	 valeur_marché.setDernier_cours(30.03);
-//		 valeur_marché.setCode_isim((long) 75221559);
-//		 valeur_marché.setQte(654.3);
-//		 valeur_marché.setDate_dernier_cours(null);
-//		 valeur_marché.setVariation(1.3);
-//		 valeur_marchéLocal.add(valeur_marché);
-//		 valeur_marché = new Valeur_marché();
-//
-//
-//		 valeur_marché.setCode_interne((long) 50052533);
-//		 valeur_marché.setLib_lon("Agricolt");
-//		 valeur_marché.setCours_ref(15.20);
-//		 valeur_marché.setDernier_cours(7.2);
-//		 valeur_marché.setCode_isim((long) 65252152);
-//		 valeur_marché.setQte(850.3);
-//		 valeur_marché.setDate_dernier_cours(null);
-//		 valeur_marché.setVariation(0.5);
-//		 valeur_marchéLocal.add(valeur_marché);
-//		 valeur_marché = new Valeur_marché();
-//		
-//		 valeur_marché.setCode_interne((long) 500520003);
-//		 valeur_marché.setLib_lon("Délice Dannone");
-//		 valeur_marché.setCours_ref(50.20);
-//		 valeur_marché.setDernier_cours(70.30);
-//		 valeur_marché.setCode_isim((long) 662528652);
-//		 valeur_marché.setQte(15.3);
-//		 valeur_marché.setDate_dernier_cours(null);
-//		 valeur_marché.setVariation(1.5);
-//		 valeur_marchéLocal.add(valeur_marché);
+		List<Valeur_marché> too = valeur_marché;
+		Collections.sort(too);
+		for (int i = 0; i < too.size(); i++) {
+			if (i > 2)
+				break;
+			
+			bass.add(too.get(i));
+		}
+		
+		int j = 0;
+		for (int i = too.size()-1; i > 0; i--) {
+			if (j > 2)
+				break;
+			j++;
+			hausse.add(too.get(i));
+		}
+		// Valeur_marché valeur_marché = new Valeur_marché();
+		//
+		//
+		// valeur_marché.setLib_lon("ATB");
+		// valeur_marché.setCours_ref(23.20);
+		// valeur_marché.setDernier_cours(23.2);
+		// valeur_marché.setCode_isim((long) 65258652);
+		// valeur_marché.setQte(650.3);
+		// valeur_marché.setDate_dernier_cours(null);
+		// valeur_marché.setVariation(0.8);
+		// valeur_marchéLocal.add(valeur_marché);
+		// valeur_marché = new Valeur_marché();
+		//
+		//
+		//
+		// valeur_marché.setLib_lon("BFI");
+		// valeur_marché.setCours_ref(83.00);
+		// valeur_marché.setDernier_cours(92.2);
+		// valeur_marché.setCode_isim((long) 851815124);
+		// valeur_marché.setQte(60.3);
+		// valeur_marché.setDate_dernier_cours(null);
+		// valeur_marché.setVariation(0.5);
+		//
+		// valeur_marchéLocal.add(valeur_marché);
+		// valeur_marché = new Valeur_marché();
+		//
+		//
+		//
+		// valeur_marché.setLib_lon("Tunisair");
+		// valeur_marché.setCours_ref(3.20);
+		// valeur_marché.setDernier_cours(30.03);
+		// valeur_marché.setCode_isim((long) 75221559);
+		// valeur_marché.setQte(654.3);
+		// valeur_marché.setDate_dernier_cours(null);
+		// valeur_marché.setVariation(1.3);
+		// valeur_marchéLocal.add(valeur_marché);
+		// valeur_marché = new Valeur_marché();
+		//
+		//
+		//
+		// valeur_marché.setLib_lon("Agricolt");
+		// valeur_marché.setCours_ref(15.20);
+		// valeur_marché.setDernier_cours(7.2);
+		// valeur_marché.setCode_isim((long) 65252152);
+		// valeur_marché.setQte(850.3);
+		// valeur_marché.setDate_dernier_cours(null);
+		// valeur_marché.setVariation(0.5);
+		// valeur_marchéLocal.add(valeur_marché);
+		// valeur_marché = new Valeur_marché();
+		//
+		//
+		// valeur_marché.setLib_lon("Délice Dannone");
+		// valeur_marché.setCours_ref(50.20);
+		// valeur_marché.setDernier_cours(70.30);
+		// valeur_marché.setCode_isim((long) 662528652);
+		// valeur_marché.setQte(15.3);
+		// valeur_marché.setDate_dernier_cours(null);
+		// valeur_marché.setVariation(1.5);
+		// valeur_marchéLocal.add(valeur_marché);
 	}
 
 	public String doRedirectToInfoValeur(ValueChangeEvent event) {
-		int outcome = Integer.parseInt((String) event.getNewValue()) ;
+		int outcome = Integer.parseInt((String) event.getNewValue());
 		String redirectTo = "";
 		selectedValeur_marché = valeur_marchéLocal.findById(outcome);
 		redirectTo = "http://localhost:8383/tn.bfi.bourse.informatique.ms.web/infovaleurs.jsf";
@@ -136,6 +156,22 @@ public class Valeur_marchéCtr {
 
 	public void setValeur_marché(List<Valeur_marché> valeur_marché) {
 		this.valeur_marché = valeur_marché;
+	}
+
+	public List<Valeur_marché> getHausse() {
+		return hausse;
+	}
+
+	public void setHausse(List<Valeur_marché> hausse) {
+		this.hausse = hausse;
+	}
+
+	public List<Valeur_marché> getBass() {
+		return bass;
+	}
+
+	public void setBass(List<Valeur_marché> bass) {
+		this.bass = bass;
 	}
 
 }
