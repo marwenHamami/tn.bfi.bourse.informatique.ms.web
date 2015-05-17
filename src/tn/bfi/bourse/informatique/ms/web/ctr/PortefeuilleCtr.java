@@ -3,15 +3,12 @@ package tn.bfi.bourse.informatique.ms.web.ctr;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import tn.bfi.bourse.informatique.ms.entity.Client;
 import tn.bfi.bourse.informatique.ms.entity.Execution;
-import tn.bfi.bourse.informatique.ms.entity.Hmvt;
 import tn.bfi.bourse.informatique.ms.entity.Portefeuille;
 import tn.bfi.bourse.informatique.ms.local.ExecutionEJBLocal;
 import tn.bfi.bourse.informatique.ms.local.HmvtEJBLocal;
@@ -59,7 +56,12 @@ public class PortefeuilleCtr {
 		portefeuille = new Portefeuille();
 		return "/client/index.jsf?faces-redirect=true";
 	}
+	
 
+	public void dodelete() {
+		portefeuilleEJBLocal.delete(portefeuille);
+	}
+	
 	public Portefeuille getSelectedPrtefeuille() {
 		return selectedPrtefeuille;
 	}

@@ -8,7 +8,7 @@
 	<ui:define name="content">
 
 		<div id="cA">
-			<div class="Ctopleft"></div>
+
 			<br></br>
 			<h:form>
 				<p:messages id="messages" showDetail="true" />
@@ -81,6 +81,8 @@
 				<br />
 				<br />
 				<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
+					selectionMode="single" rowKey="#{ex.id}"
+					selection="#{executionCtr.selectedExecution}"
 					value="#{portefeuilleCtr.executions}" var="ex">
 
 					<f:facet name="header">
@@ -89,7 +91,7 @@
 					<p:column headerText="Valeur">
 						<h:outputText value="#{ex.ordre.valeur_marché.lib_lon}" />
 					</p:column>
-					<p:column headerText="Prix revient">
+					<p:column headerText="Montant">
 						<h:outputLabel value="#{ex.ordre.montanat_net}" />
 					</p:column>
 					<p:column headerText="Quantité">
@@ -98,17 +100,11 @@
 					<p:column headerText="Cours">
 						<h:outputLabel value="#{ex.ordre.valeur_marché.cours_ref}" />
 					</p:column>
-					<p:column headerText="Var.Jour">
-						<h:outputLabel value="" />
+					<p:column headerText="Variation">
+						<h:outputLabel value="#{ex.ordre.valeur_marché.variation}%" />
 					</p:column>
-					<p:column headerText="Capital.initial">
-						<h:outputLabel value="" />
-					</p:column>
-					<p:column headerText="Gain(DT)">
-						<h:outputLabel value="" />
-					</p:column>
-					<p:column headerText="Gain(%)">
-						<h:outputLabel value="" />
+					<p:column headerText="Dernier cours">
+						<h:outputLabel value="#{ex.ordre.valeur_marché.dernier_cours}" />
 					</p:column>
 				</p:dataTable>
 				<h4>

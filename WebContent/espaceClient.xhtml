@@ -43,7 +43,7 @@
 			<div class="Ctopright"></div>
 			<div id="cB1">
 				<h3>Inscription</h3>
-				<h:form>
+				<h:form id="f">
 					<p:growl id="growl" showDetail="true" sticky="true" />
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Login" />
@@ -97,13 +97,14 @@
 				<h3>Accés Client</h3>
 				<div class="about">
 					<h:form>
+					<p:growl id="growl" showDetail="true" sticky="true" />
 						<h:panelGrid columns="2">
-							<h:outputLabel value="Login" />
-							<p:inputText value="#{userCtr.login}" />
+							<h:outputLabel value="Login"  />
+							<p:inputText required="true" value="#{userCtr.login}" requiredMessage="login" />
 							<h:outputLabel value="Mot de passe" />
-							<p:password value="#{userCtr.password}" />
+							<p:password required="true" value="#{userCtr.password}" requiredMessage="Mot de passe"  />
 						</h:panelGrid>
-						<p:commandButton action="#{userCtr.doLogin()}" value="Connexion" />
+						<p:commandButton action="#{userCtr.doLogin()}" value="Connexion"  update="growl" />
 					</h:form>
 				</div>
 			</div>

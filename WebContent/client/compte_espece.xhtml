@@ -58,30 +58,30 @@
 		</div>
 		<!-- cA -->
 		<div id="cB" align="center">
-		<br /><br />
-		<h1>Ajout/Retrait liquidité</h1>
-		<br /><br />
+			<br />
+			<br />
+			<h1>Ajout/Retrait liquidité</h1>
+			<br />
+			<br />
 			<h:form>
 				<div id="cB1">
 					<br />
 					<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-
-						<p:outputLabel for="choix" value="Choix:" />
-						<p:selectOneRadio id="choix" value="#{radioView.console}">
-							<f:selectItem itemLabel="Ajout" itemValue="Ajout" />
-							<f:selectItem itemLabel="Retrait" itemValue="Retrait" />
-						</p:selectOneRadio>
+					<h:outputLabel value="Nom" />
+						<p:inputText value="#{compteEspeceCtr.compte_espece.lib}" />
+						<h:outputLabel value="RIB" />
+						<p:inputText value="#{compteEspeceCtr.compte_espece.RIB}" />
 						<h:outputLabel value="Solde" />
 						<p:inputText value="#{compteEspeceCtr.compte_espece.solde}" />
-						<br /><br />
+						<br />
+						<br />
 						<p:commandButton value="Confirmer" update="CompteEspece"
 							action="#{compteEspeceCtr.doAdd}" />
-
 					</h:panelGrid>
 
 				</div>
 				<div id="cB2">
-				<br />
+					<br />
 
 					<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
 						id="CompteEspece" selectionMode="single" rowKey="#{compte.id}"
@@ -90,7 +90,7 @@
 						<f:facet name="header">
            			Compte Espece
       			  </f:facet>
-						<p:column>
+						<p:column headerText="Nom">
 							<h:outputLabel value="#{compte.lib}" />
 						</p:column>
 						<p:column headerText="RIB">

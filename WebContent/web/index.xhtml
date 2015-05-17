@@ -3,107 +3,107 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:p="http://primefaces.org/ui" template="/template2/template.xhtml">
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
 
 	<ui:define name="title"> welcome page</ui:define>
 	<ui:define name="content">
 
-		<div id="cA" style=" height : 339px;">
-			<div class="Ctopleft"></div>
+		<div id="cA" style="height: 339px;" align="center">
+
 			<br></br>
-			<div id="search">
-		<h:form>
-    <p:messages id="messages" showDetail="true"/>
- 
-    <h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
-        
-    <p:commandButton id="ajax" actionListener="#{watermarkView.search}" value="Recherche"
-                        onclick="PrimeFaces.cleanWatermarks();" oncomplete="PrimeFaces.showWatermarks();" update="messages" />
-        
-        <p:inputText id="keyword" value="#{watermarkView.keyword}" required="true" label="Keyword"/>
-        <p:watermark for="keyword"  id="watermark" />
-    
- 
-   </h:panelGrid>
-</h:form>
-</div>
-		<!-- search -->
-		<br />
-		<br />
-			<h1 align="center">vous pouvez accéder à votre compte boursier 24/7 en utilisant votre téléphone</h1>
-			
-			<p class="testimonial">
-			<img src="../ressources/images/sabri.jpg" alt="" style="width : 250px; height : 280px;"/>
+			<div id="search" align="center">
+				<h:form>
+					<p:messages id="messages" showDetail="true" />
+
+					<h:panelGrid columns="3" cellpadding="4" style="margin-bottom:10px">
+
+						<p:commandButton id="ajax"
+							actionListener="#{watermarkView.search}" value="Recherche"
+							onclick="PrimeFaces.cleanWatermarks();"
+							oncomplete="PrimeFaces.showWatermarks();" update="messages" />
+
+						<p:inputText id="keyword" value="#{watermarkView.keyword}"
+							required="true" label="Keyword" />
+						<p:watermark for="keyword" id="watermark" />
+
+
+					</h:panelGrid>
+				</h:form>
+			</div>
+			<!-- search -->
+			<br /> <br />
+			<h1 align="center">vous pouvez accéder à votre compte boursier
+				24/7 en utilisant votre téléphone</h1>
+<br />
+			<p  align="center">
+				<img src="../ressources/images/sabri.jpg"
+					style="width: 250px; height: 270px;" align="middle" />
 			</p>
 		</div>
 		<!-- cA -->
 		<div id="cB">
-			<div class="Ctopright" style=" width : 300px; height : 320px;">
-		
-			<h3>Cours </h3>
-			
-					<img src="../ressources/images/chart1.jpg" alt="" style="height : 265px; width : 300px;" />
-				
-			</div>
-			<div id="cB1" style=" width : 299px;">
-		<br/>	
-			<h1 >Valeur de marché </h1>
-		<br/>
-		
-				<p:dataTable rows="5">
-				<f:facet name="header">
-           			Valeurs Hausses
-      			  </f:facet>
-				<p:column headerText="Valeur">
-					<h:outputText value="" />
-				</p:column>
-				<p:column headerText="Cours">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Variation">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="%">
-					<h:outputLabel value="" />
-				</p:column>
-			</p:dataTable>
-			<br/>
-			<br/>
-			<p:dataTable >
-				<f:facet name="header">
-           			Valeurs Baisses
-      			  </f:facet>
-				<p:column headerText="Valeur">
-					<h:outputText value="" />
-				</p:column>
-				<p:column headerText="Cours">
-					<h:outputLabel value="" />
-				</p:column>
-				<p:column headerText="Variation">
-					<h:outputLabel value="" />
-				</p:column><p:column headerText="%">
-					<h:outputLabel value="" />
-				</p:column>
-			</p:dataTable>
+			<div class="Ctopright" style="width: 300px; height : 463px;">
+				<br />
+				<h1>Cours</h1>
+				<br /> <img src="../ressources/images/chart1.jpg" alt=""
+					style="height: 265px; width: 300px;" /> <br /> <br /> <br /> <br />
+				<div id="cB2">
+					
+					<div id="newsletter" align="right">
+						<span id="newsletter-title"><a href="">Newsletter</a></span>
+						<p id="newsletter-text">
+							<a href="">Click here to register for MSbourse's monthly
+								newsletter</a>
+						</p>
+					</div>
 				</div>
-				
-			</div>
-			
-			<!-- cB1 -->
-			<div id="cB2">
-			<br></br>
-				<div id="newsletter">
-					<span id="newsletter-title"><a
-						href="">Newsletter</a></span>
-					<p id="newsletter-text">
-						<a href="">Click here to
-							register for MSbourse's monthly newsletter</a>
-					</p>
-				</div>
-			</div>
-			<!-- cB2 -->
 
-		<!-- cB -->
-	
+			</div>
+			<div id="cB1" style="width: 299px; height: auto" align="center">
+				<br />
+				<h1>Valeur de marché</h1>
+				<br />
+
+				<p:dataTable value="#{valeur_marchéCtr.hausse}" var="valeur">
+					<f:facet name="header">
+						<h3 style="background-color: green; color: white;">Valeurs
+							Hausses</h3>
+					</f:facet>
+					<p:column headerText="Valeur">
+						<h:outputText value="#{valeur.lib_lon}" />
+					</p:column>
+					<p:column headerText="Cours">
+						<h:outputLabel value="#{valeur.cours_ref}" />
+					</p:column>
+					<p:column headerText="Dernier cours">
+						<h:outputLabel value="#{valeur.dernier_cours}" />
+					</p:column>
+					<p:column headerText="%">
+						<h:outputLabel value="#{valeur.variation}" />
+					</p:column>
+				</p:dataTable>
+				<br /> <br />
+				<p:dataTable value="#{valeur_marchéCtr.bass}" var="valeur">
+					<f:facet name="header">
+						<h3 style="background-color: red; color: white;">Valeurs
+							Baisses</h3>
+					</f:facet>
+					<p:column headerText="Valeur">
+						<h:outputText value="#{valeur.lib_lon}" />
+					</p:column>
+					<p:column headerText="Cours">
+						<h:outputLabel value="#{valeur.cours_ref}" />
+					</p:column>
+					<p:column headerText="Dernier cours">
+						<h:outputLabel value="#{valeur.dernier_cours}" />
+					</p:column>
+					<p:column headerText="%">
+						<h:outputLabel value="#{valeur.variation}" />
+					</p:column>
+				</p:dataTable>
+			</div>
+
+		</div>
+
 	</ui:define>
 </ui:composition>

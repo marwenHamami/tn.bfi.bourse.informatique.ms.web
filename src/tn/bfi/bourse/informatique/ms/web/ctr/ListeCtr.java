@@ -1,7 +1,6 @@
 package tn.bfi.bourse.informatique.ms.web.ctr;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.PostConstruct;

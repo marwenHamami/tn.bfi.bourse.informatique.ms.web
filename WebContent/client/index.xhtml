@@ -60,7 +60,8 @@
 		<!-- cA -->
 		<div id="cB" align="right">
 			<br />
-			<h1 style="font-style: italic; color: black;" align="center">Liste des Portefeuilles de #{userCtr.client.nom} #{userCtr.client.prenom}</h1>
+			<h1 style="font-style: italic; color: black;" align="center">Liste
+				des Portefeuilles de #{userCtr.client.nom} #{userCtr.client.prenom}</h1>
 			<br /> <br />
 			<h:outputLabel value="Solde espece" />
 			<input type="text" disabled="disabled"
@@ -82,13 +83,18 @@
 				<p:column headerText="capital">
 					<h:outputLabel value="#{port.capital}" />
 				</p:column>
-				<p:column headerText="action">
-					<p:commandButton value="afficher" action="#{portefeuilleCtr.doRedirectToInfoPortfeuil(port)}"/>
+				<p:column headerText="Operation">
+					<p:commandButton value="afficher"
+						action="#{portefeuilleCtr.doRedirectToInfoPortfeuil(port)}" />
 				</p:column>
 			</p:dataTable>
 			<br />
 			<p:commandButton value="Ajouter portefeuille"
 				action="#{portefeuilleCtr.doRedirectToAddPortefeuille}" />
+				
+			<p:commandButton value="Supprimer portefeuille"
+				action="#{portefeuilleCtr.dodelete()}" />
+
 			<!-- cB2 -->
 		</div>
 		<!-- cB -->

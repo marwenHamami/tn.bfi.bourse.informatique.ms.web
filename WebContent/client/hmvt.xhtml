@@ -65,16 +65,12 @@
 
 				<br />
 				<h1>Historique des Mouvements</h1>
-				<br />
 
 				<br />
 				<br />
 				<p:dataTable paginator="true" paginatorPosition="bottom" rows="5"
 					value="#{hmvtCtr.executions}" var="hmvt">
 
-					<f:facet name="header">
-           			Historique des Mouvements
-      			  </f:facet>
 					<p:column headerText="Date">
 						<h:outputText value="#{hmvt.date}" />
 					</p:column>
@@ -85,13 +81,13 @@
 						<h:outputLabel value="#{hmvt.ordre.valeur_marché.lib_lon}" />
 					</p:column>
 					<p:column headerText="Prix(DT)">
-						<h:outputLabel value="" />
+						<h:outputLabel value="#{hmvt.ordre.montanat_net}" />
 					</p:column>
 					<p:column headerText="Quantité">
-						<h:outputLabel value="" />
+						<h:outputLabel value="#{hmvt.quantity}" />
 					</p:column>
 					<p:column headerText="Portefeuille">
-						<h:outputLabel value="" />
+						<h:outputLabel value="#{hmvt.hmvt.portfeuille.libelle}" />
 					</p:column>
 				</p:dataTable>
 
