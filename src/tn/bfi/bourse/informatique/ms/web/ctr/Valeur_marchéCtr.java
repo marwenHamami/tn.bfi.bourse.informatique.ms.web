@@ -38,76 +38,95 @@ public class Valeur_marchéCtr {
 		for (int i = 0; i < too.size(); i++) {
 			if (i > 2)
 				break;
-			
+
 			bass.add(too.get(i));
 		}
-		
+
 		int j = 0;
-		for (int i = too.size()-1; i > 0; i--) {
+		for (int i = too.size() - 1; i > 0; i--) {
 			if (j > 2)
 				break;
 			j++;
 			hausse.add(too.get(i));
 		}
-		// Valeur_marché valeur_marché = new Valeur_marché();
-		//
-		//
-		// valeur_marché.setLib_lon("ATB");
-		// valeur_marché.setCours_ref(23.20);
-		// valeur_marché.setDernier_cours(23.2);
-		// valeur_marché.setCode_isim((long) 65258652);
-		// valeur_marché.setQte(650.3);
-		// valeur_marché.setDate_dernier_cours(null);
-		// valeur_marché.setVariation(0.8);
-		// valeur_marchéLocal.add(valeur_marché);
-		// valeur_marché = new Valeur_marché();
-		//
-		//
-		//
-		// valeur_marché.setLib_lon("BFI");
-		// valeur_marché.setCours_ref(83.00);
-		// valeur_marché.setDernier_cours(92.2);
-		// valeur_marché.setCode_isim((long) 851815124);
-		// valeur_marché.setQte(60.3);
-		// valeur_marché.setDate_dernier_cours(null);
-		// valeur_marché.setVariation(0.5);
-		//
-		// valeur_marchéLocal.add(valeur_marché);
-		// valeur_marché = new Valeur_marché();
-		//
-		//
-		//
-		// valeur_marché.setLib_lon("Tunisair");
-		// valeur_marché.setCours_ref(3.20);
-		// valeur_marché.setDernier_cours(30.03);
-		// valeur_marché.setCode_isim((long) 75221559);
-		// valeur_marché.setQte(654.3);
-		// valeur_marché.setDate_dernier_cours(null);
-		// valeur_marché.setVariation(1.3);
-		// valeur_marchéLocal.add(valeur_marché);
-		// valeur_marché = new Valeur_marché();
-		//
-		//
-		//
-		// valeur_marché.setLib_lon("Agricolt");
-		// valeur_marché.setCours_ref(15.20);
-		// valeur_marché.setDernier_cours(7.2);
-		// valeur_marché.setCode_isim((long) 65252152);
-		// valeur_marché.setQte(850.3);
-		// valeur_marché.setDate_dernier_cours(null);
-		// valeur_marché.setVariation(0.5);
-		// valeur_marchéLocal.add(valeur_marché);
-		// valeur_marché = new Valeur_marché();
-		//
-		//
-		// valeur_marché.setLib_lon("Délice Dannone");
-		// valeur_marché.setCours_ref(50.20);
-		// valeur_marché.setDernier_cours(70.30);
-		// valeur_marché.setCode_isim((long) 662528652);
-		// valeur_marché.setQte(15.3);
-		// valeur_marché.setDate_dernier_cours(null);
-		// valeur_marché.setVariation(1.5);
-		// valeur_marchéLocal.add(valeur_marché);
+//		 Valeur_marché valeur_marché = new Valeur_marché();
+//		
+//		 valeur_marché.setLib_lon("ATB");
+//		 valeur_marché.setHaut(4.32);
+//		 valeur_marché.setBas(4.24);
+//		 valeur_marché.setCours_ref(4.24);
+//		 valeur_marché.setDernier_cours(4.00);
+//		 valeur_marché.setCode_isim((long) 0003600350);
+//		 valeur_marché.setQte(1899.0);
+//		 valeur_marché.setDate_dernier_cours(new Date());
+//		 valeur_marché.setVariation(6.30);
+//		 valeur_marchéLocal.add(valeur_marché);
+//		 valeur_marché = new Valeur_marché();
+//		
+//		 valeur_marché.setLib_lon("BFI");
+//		 valeur_marché.setHaut(40.32);
+//		 valeur_marché.setBas(40.00);
+//		 valeur_marché.setCours_ref(40.00);
+//		 valeur_marché.setDernier_cours(40.22);
+//		 valeur_marché.setCode_isim((long) 0001600350);
+//		 valeur_marché.setQte(600.0);
+//		 valeur_marché.setDate_dernier_cours(new Date());
+//		 valeur_marché.setVariation(0.8);
+//		 valeur_marchéLocal.add(valeur_marché);
+//		 valeur_marché = new Valeur_marché();
+//		
+//		 valeur_marché.setLib_lon("Tunisair");
+//		 valeur_marché.setHaut(0.95);
+//		 valeur_marché.setBas(0.94);
+//		 valeur_marché.setCours_ref(0.91);
+//		 valeur_marché.setDernier_cours(0.90);
+//		 valeur_marché.setCode_isim((long) 0001200401);
+//		 valeur_marché.setQte(41495.);
+//		 valeur_marché.setDate_dernier_cours(new Date());
+//		 valeur_marché.setVariation(5.3);
+//		 valeur_marchéLocal.add(valeur_marché);
+//		 valeur_marché = new Valeur_marché();
+//		
+//		
+//		
+//		 valeur_marché.setLib_lon("Star");
+//		 valeur_marché.setHaut(181.0);
+//		 valeur_marché.setBas(179.0);
+//		 valeur_marché.setCours_ref(180.0);
+//		 valeur_marché.setDernier_cours(180.0);
+//		 valeur_marché.setCode_isim((long) 0006060016);
+//		 valeur_marché.setQte(40274.0);
+//		 valeur_marché.setDate_dernier_cours(new Date());
+//		 valeur_marché.setVariation(0.0);
+//		 valeur_marchéLocal.add(valeur_marché);
+//		 valeur_marché = new Valeur_marché();
+//		
+//		
+//		 valeur_marché.setLib_lon("DELICE HOLDING");
+//		 valeur_marché.setHaut(16.88);
+//     	 valeur_marché.setBas(16.55);
+//		 valeur_marché.setCours_ref(16.55);
+//		 valeur_marché.setDernier_cours(16.78);
+//		 valeur_marché.setCode_isim((long) 0007670011);
+//		 valeur_marché.setQte(11556.0);
+//		 valeur_marché.setDate_dernier_cours(new Date());
+//		 valeur_marché.setVariation(0.54);
+//		 valeur_marchéLocal.add(valeur_marché);
+//		 valeur_marché = new Valeur_marché();
+//		 
+//		 
+//     	 valeur_marché.setLib_lon("ADWIA");
+//     	 valeur_marché.setHaut(8.49);
+//     	 valeur_marché.setBas(8.26);
+//		 valeur_marché.setCours_ref(8.26);
+//		 valeur_marché.setDernier_cours(8.25);
+//		 valeur_marché.setCode_isim((long) 0007250012);
+//		 valeur_marché.setQte(1129.0);
+//		 valeur_marché.setDate_dernier_cours(new Date());
+//		 valeur_marché.setVariation(2.78);
+//		 valeur_marchéLocal.add(valeur_marché);
+//		 
+
 	}
 
 	public String doRedirectToInfoValeur(ValueChangeEvent event) {
