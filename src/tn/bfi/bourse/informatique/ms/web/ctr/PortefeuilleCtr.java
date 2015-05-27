@@ -22,6 +22,8 @@ public class PortefeuilleCtr {
 	private List<Portefeuille> portefeuilles = new ArrayList<Portefeuille>();
 	private List<Execution> executions = new ArrayList<Execution>();
 
+	private Double somme=0.0;
+
 	@ManagedProperty(value = "#{userCtr}")
 	UserCtr userCtr;
 	@EJB
@@ -37,13 +39,22 @@ public class PortefeuilleCtr {
 	}
 
 	public String doRedirectToAddPortefeuille() {
-		
+
 		return "/client/ajouterPortefeuille.jsf?faces-redirect=true";
 	}
 
 	public String doRedirectToInfoPortfeuil(Portefeuille portefeuille) {
 		selectedPrtefeuille = portefeuille;
 		executions = executionEJBLocal.findByPortefeuil(selectedPrtefeuille);
+		somme = 0.0;
+		for (Execution execution : executions) {
+			try {
+				somme += execution.getMontant_net();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+		}
 		return "/client/infoportefeuilles.jsf?faces-redirect=true";
 	}
 
@@ -56,12 +67,11 @@ public class PortefeuilleCtr {
 		portefeuille = new Portefeuille();
 		return "/client/index.jsf?faces-redirect=true";
 	}
-	
 
 	public void dodelete() {
 		portefeuilleEJBLocal.delete(portefeuille);
 	}
-	
+
 	public Portefeuille getSelectedPrtefeuille() {
 		return selectedPrtefeuille;
 	}
@@ -96,6 +106,14 @@ public class PortefeuilleCtr {
 
 	public void setExecutions(List<Execution> executions) {
 		this.executions = executions;
+	}
+
+	public Double getSomme() {
+		return somme;
+	}
+
+	public void setSomme(Double somme) {
+		this.somme = somme;
 	}
 
 }

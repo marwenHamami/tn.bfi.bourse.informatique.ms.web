@@ -5,9 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import tn.bfi.bourse.informatique.ms.entity.Demande;
 import tn.bfi.bourse.informatique.ms.entity.Execution;
@@ -26,11 +28,12 @@ import tn.bfi.bourse.informatique.ms.local.Valeur_marchéEJBLocal;
 @SessionScoped
 public class OrdreCtr {
 
-	private Ordre selectedOrdre;
+	private Ordre selectedOrdre = new Ordre();
 	private Ordre ordre = new Ordre();
 	private Demande demande = new Demande();
 	private List<Ordre> ordres = new ArrayList<Ordre>();
 
+	private List<Ordre> ordres2 = new ArrayList<Ordre>();
 	private Valeur_marché valeur_marché = new Valeur_marché();
 
 	private int id_port;
@@ -63,8 +66,12 @@ public class OrdreCtr {
 	}
 
 	public void doAdd() {
+		// demande
 		demande.setOrdres(null);
-		demandeEJBLocal.add(demande);
+
+		// demandeEJBLocal.add(demande);
+
+		// ordre
 		ordre.setDemande(demande);
 		ordre.setCanal_saisie("achat");
 		ordre.setCompte_br(userCtr.getClient().getCompte_br());
@@ -74,27 +81,88 @@ public class OrdreCtr {
 		ordre.setMontanat_net(demande.getMontant_net());
 		ordre.setQt_initial(demande.getQt_initial());
 		ordre.setValeur_marché(valeur_marché);
+		ordres2.add(ordre);
+		// ordreEJBLocal.passerordre(ordre);
+		//
+		// // mouvement
+		// Hmvt hmvt = new Hmvt();
+		// hmvt.setCanal("internet");
+		// hmvt.setDate(new Date());
+		// hmvt.setExecutions(null);
+		// hmvt.setMontant(demande.getMontant_net());
+		// Portefeuille p = new Portefeuille();
+		// p.setId(id_portefeuille);
+		// hmvt.setPortfeuille(p);
+		// hmvtLocal.add(hmvt);
+		//
+		// // execution
+		// Execution execution = new Execution();
+		// execution.setCours(valeur_marché.getCours_ref());
+		// execution.setDate(new Date());
+		// execution.setHmvt(hmvt);
+		// execution.setMontant_net(demande.getMontant_net());
+		// execution.setOrdre(ordre);
+		// execution.setQuantity(demande.getQt_initial());
+		// executionEJBLocal.add(execution);
+		//
+		ordre = new Ordre();
+		demande = new Demande();
+	}
+
+	public void doValider(Ordre ordre) {
+		demandeEJBLocal.add(ordre.getDemande());
 		ordreEJBLocal.passerordre(ordre);
+
 		Hmvt hmvt = new Hmvt();
 		hmvt.setCanal("internet");
 		hmvt.setDate(new Date());
 		hmvt.setExecutions(null);
-		hmvt.setMontant(demande.getMontant_net());
+		hmvt.setMontant(ordre.getDemande().getMontant_net());
 		Portefeuille p = new Portefeuille();
 		p.setId(id_portefeuille);
 		hmvt.setPortfeuille(p);
 		hmvtLocal.add(hmvt);
 
+		// execution
 		Execution execution = new Execution();
-		execution.setCours(valeur_marché.getCours_ref());
+		execution.setCours(ordre.getValeur_marché().getCours_ref());
 		execution.setDate(new Date());
 		execution.setHmvt(hmvt);
-		execution.setMontant_net(demande.getMontant_net());
+		execution.setMontant_net(ordre.getDemande().getMontant_net());
 		execution.setOrdre(ordre);
-		execution.setQuantity(demande.getQt_initial());
+		execution.setQuantity(ordre.getDemande().getQt_initial());
 		executionEJBLocal.add(execution);
-		ordre = new Ordre();
-		demande = new Demande();
+
+		ordres2.remove(ordre);
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null,
+				new FacesMessage("Succes", "ordre :"
+						+ ordre.getValeur_marché().getLib_lon() + " , Qte :"
+						+ ordre.getQt_initial() + " a ete BIEN execute"));
+	}
+
+	public void doDeleteOrdre(Ordre ordre) {
+		ordres2.remove(ordre);
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null,
+				new FacesMessage("Delete", "ordre :"
+						+ ordre.getValeur_marché().getLib_lon() + " , Qte :"
+						+ ordre.getQt_initial() + " a ete supprimer"));
+	}
+
+	public void doUpdate(Ordre ordre) {
+		selectedOrdre = ordre;
+	}
+
+	public void doModifier() {
+		ordres2.remove(selectedOrdre);
+		selectedOrdre.getDemande().setMontant_net(
+				selectedOrdre.getValeur_marché().getCours_ref()
+						* selectedOrdre.getQt_initial());
+		selectedOrdre.setMontanat_net(selectedOrdre.getValeur_marché()
+				.getCours_ref() * selectedOrdre.getQt_initial());
+		ordres2.add(selectedOrdre);
+
 	}
 
 	public void doCalculerMontant() {
@@ -174,6 +242,14 @@ public class OrdreCtr {
 
 	public void setId_portefeuille(int id_portefeuille) {
 		this.id_portefeuille = id_portefeuille;
+	}
+
+	public List<Ordre> getOrdres2() {
+		return ordres2;
+	}
+
+	public void setOrdres2(List<Ordre> ordres2) {
+		this.ordres2 = ordres2;
 	}
 
 }

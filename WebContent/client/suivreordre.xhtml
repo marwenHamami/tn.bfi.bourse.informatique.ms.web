@@ -58,38 +58,55 @@
 		</div>
 		<!-- cA -->
 		<div id="cB" align="center">
-			<h:form>
-
+			<h:form id="form">
+				<p:growl id="growl" showDetail="true" sticky="true" />
 
 				<br />
 				<h1>Suivre vos ordres</h1>
 				<br />
 				<br />
 				<br />
-				<p:dataTable paginator="true" paginatorPosition="bottom" rows="20">
-
+				<p:dataTable id="dtSuivre" paginator="true"
+					paginatorPosition="bottom" rows="5" value="#{ordreCtr.ordres2}"
+					var="ordre">
 					<f:facet name="header">
            			Ordres
       			  </f:facet>
-					<p:column headerText="Portefeuille">
-						<h:outputLabel value="" />
-					</p:column>
 					<p:column headerText="Valeur">
-						<h:outputText value="" />
+						<h:outputText value="#{ordre.valeur_marché.lib_lon}" />
 					</p:column>
 
 					<p:column headerText="Quantité">
-						<h:outputLabel value="" />
+						<h:outputLabel value="#{ordre.qt_initial}" />
 					</p:column>
 					<p:column headerText="Cours">
-						<h:outputLabel value="" />
+						<h:outputLabel value="#{ordre.montanat_net}" />
 					</p:column>
 					<p:column headerText="Var.Jour">
-						<h:outputLabel value="" />
+						<h:outputLabel value="#{ordre.valeur_marché.variation}" />
+					</p:column>
+					<p:column headerText="Operation">
+						
+							<p:commandButton icon="ui-icon-plus" title="Valider"
+								update=":form:dtSuivre :form:growl"
+								action="#{ordreCtr.doValider(ordre)}" />
+							<p:commandButton icon="ui-icon-pencil" title="modifier"
+								action="#{ordreCtr.doUpdate(ordre)}" />
+							<p:commandButton icon="ui-icon-closethick" title="supprimer"
+								action="#{ordreCtr.doDeleteOrdre(ordre)}"
+								update=":form:dtSuivre :form:growl" />
+		
 					</p:column>
 				</p:dataTable>
-				<p:commandButton value="Modifier"  />
-				<p:commandButton value="Supprimer" />
+
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Qte" />
+					<p:inputText value="#{ordreCtr.selectedOrdre.qt_initial}" />
+					<p:commandButton value="Valider" action="#{ordreCtr.doModifier}"
+						update=":form:dtSuivre" />
+				</h:panelGrid>
+
+
 			</h:form>
 			<!-- cB2 -->
 		</div>

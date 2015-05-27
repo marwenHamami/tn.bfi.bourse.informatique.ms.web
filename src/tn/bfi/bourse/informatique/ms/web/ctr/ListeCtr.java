@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import tn.bfi.bourse.informatique.ms.entity.Liste;
@@ -37,20 +38,22 @@ public class ListeCtr {
 	Valeur_marchéEJBLocal valeur_marcheLocol;
 	@EJB
 	ListeValeurMarcheEJBLocal listeValeurMarcheLocal;
+	@ManagedProperty(value = "#{userCtr}")
+	UserCtr userCtr;
 
 	@PostConstruct
 	public void init() {
-		listes = listeEJBLocal.findAll();
+		listes = listeEJBLocal.findByClient(userCtr.getClient());
 	}
 
 	public void doAjouter() {
 		selectedValeurMarche = valeur_marcheLocol.findById(id_valeur);
-		if(selectedValeurMarche== null){
+		if (selectedValeurMarche == null) {
 			System.err.println("aucune liste selectionner");
 			return;
 		}
 		for (Valeur_marché valeur_marché : listValeurMarche) {
-			if(valeur_marché.equals(selectedValeurMarche))
+			if (valeur_marché.equals(selectedValeurMarche))
 				return;
 		}
 		ListeValeurMarche listeValeurMarche = new ListeValeurMarche(
@@ -75,16 +78,21 @@ public class ListeCtr {
 	}
 
 	public String doAddListe() {
+		liste.setUser(userCtr.getClient());
 		listeEJBLocal.addliste(liste);
 		liste = new Liste();
 		init();
-		return "/client/liste%20valeurs.jsf?faces-redirect=true";
+		return "/client/liste valeurs.jsf?faces-redirect=true";
 	}
 
 	public String dodeleteListe() {
 		listeEJBLocal.deleteliste(liste);
 		init();
-		return "/client/liste%20valeurs.jsf?faces-redirect=true";
+		return "/client/liste valeurs.jsf?faces-redirect=true";
+	}
+
+	public String doRedirectToOrdre() {
+		return "/client/ordre.jsf?faces-redirect=true";
 	}
 
 	public Liste getSelectedListe() {
@@ -149,6 +157,10 @@ public class ListeCtr {
 
 	public void setListValeurMarche(List<Valeur_marché> listValeurMarche) {
 		this.listValeurMarche = listValeurMarche;
+	}
+
+	public void setUserCtr(UserCtr userCtr) {
+		this.userCtr = userCtr;
 	}
 
 }

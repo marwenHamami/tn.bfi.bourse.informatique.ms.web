@@ -77,7 +77,11 @@
 						<h:outputLabel value="Prenom" />
 						<p:inputText required="true" placeholder="Prenom"
 							value="#{userCtr.client.prenom}" />
-
+							
+						<h:outputLabel value="RIB" />
+						<p:inputText required="true" placeholder="RIB"
+							value="#{userCtr.rib}" />
+							
 						<h:outputLabel value="Telephone" />
 						<p:inputText required="true" placeholder="Numero de telephone"
 							value="#{userCtr.client.tel}" />
@@ -97,14 +101,17 @@
 				<h3>Accés Client</h3>
 				<div class="about">
 					<h:form>
-					<p:growl id="growl" showDetail="true" sticky="true" />
+						<p:growl id="growl" showDetail="true" sticky="true" />
 						<h:panelGrid columns="2">
-							<h:outputLabel value="Login"  />
-							<p:inputText required="true" value="#{userCtr.login}" requiredMessage="login" />
+							<h:outputLabel value="Login" />
+							<p:inputText required="true" value="#{userCtr.login}"
+								requiredMessage="login" />
 							<h:outputLabel value="Mot de passe" />
-							<p:password required="true" value="#{userCtr.password}" requiredMessage="Mot de passe"  />
+							<p:password required="true" value="#{userCtr.password}"
+								requiredMessage="Mot de passe" />
 						</h:panelGrid>
-						<p:commandButton action="#{userCtr.doLogin()}" value="Connexion"  update="growl" />
+						<p:commandButton action="#{userCtr.doLogin()}" value="Connexion"
+							update="growl" />
 					</h:form>
 				</div>
 			</div>

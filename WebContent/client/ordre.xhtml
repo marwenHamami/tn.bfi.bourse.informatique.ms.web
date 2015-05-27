@@ -67,28 +67,33 @@
 			<h:form id="form" style="float :center">
 				<p:growl id="growl" showDetail="true" sticky="true" />
 				<h:panelGrid columns="1" cellpadding="5">
-					<h:outputLabel value="Valeurs marché" />
-					<p:selectOneMenu value="#{ordreCtr.id_valeur}">
-						<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
-						<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
-							var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
-							itemValue="#{valeur_marché.id}" />
-						<p:ajax event="change" update=":form:montant"
-							listener="#{ordreCtr.doCalculerMontant}" />
-					</p:selectOneMenu>
-					<br />
 					<h:outputLabel value="portefeuille" />
-					<p:selectOneMenu value="#{ordreCtr.id_portefeuille}">
+					<p:selectOneMenu value="#{ordreCtr.id_portefeuille}" styleClass="ordreCss">
 						<f:selectItem itemLabel="Selectionner un portefeuille"
 							itemValue="" />
 						<f:selectItems value="#{portefeuilleCtr.portefeuilles}"
 							var="Portefeuille" itemLabel="#{Portefeuille.libelle}"
 							itemValue="#{Portefeuille.id}" />
-							<p:ajax event="change" update="@this" />
+						<p:ajax event="change" update="@this" />
 					</p:selectOneMenu>
 					<br />
+					<br />
+					<h:outputLabel value="Valeurs marché" />
+					<p:selectOneMenu value="#{ordreCtr.id_valeur}" styleClass="ordreCss">
+						<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
+						<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
+							var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
+							itemValue="#{valeur_marché.id}" />
+						<p:ajax event="change" update=":form:montant :form:cours_ref"
+							listener="#{ordreCtr.doCalculerMontant}" />
+					</p:selectOneMenu>
+					<br/><br/>
+					<p:inputText id="cours_ref" readonly="true" styleClass="ordreCss"
+						value="#{ordreCtr.valeur_marché.cours_ref}" />
+					<br />
+					<br />
 					<h:outputLabel value="Quantité(s)" />
-					<p:inputText value="#{ordreCtr.demande.qt_initial}" required="true">
+					<p:inputText value="#{ordreCtr.demande.qt_initial}" required="true" styleClass="ordreCss">
 						<f:ajax listener="#{ordreCtr.doCalculerMontant()}"
 							render=":form:montant" />
 					</p:inputText>
@@ -96,33 +101,27 @@
 
 
 					<h:outputLabel value="montant" />
-					<p:inputText type="text" disabled="disabled" id="montant"
+					<p:inputText type="text" disabled="disabled" id="montant" styleClass="ordreCss"
 						value="#{ordreCtr.demande.montant_net}" style="width: 150px;" />
 					<br />
 					<br />
-
-					<h:outputLabel value="Date saisi" />
-
-					<input type="text" disabled="disabled" style="width: 150px;" />
-					<br />
-					<br />
-					<p:selectOneMenu>
-						<f:selectItem itemLabel="type d'ordre" itemValue="" />
+					<p:selectOneMenu styleClass="ordreCss">
+						<f:selectItem itemLabel=" Selectionner type d'ordre " itemValue="" />
 						<f:selectItem itemLabel="ATP" itemValue="ATP" />
 						<f:selectItem itemLabel="Limité" itemValue="Limité" />
 					</p:selectOneMenu>
-
 					<br />
 					<p:outputLabel for="popup" value="Date de validité" />
-					<p:calendar id="popup" value="#{calendarView.date2}" />
+					<p:calendar id="popup" value="#{calendarView.date2}" styleClass="ordreCss" />
 
-					<h:outputText value="#{ordreCtr.ordre.date_validité}" required="true">
+					<h:outputText value="#{ordreCtr.ordre.date_validité}"
+						required="true" styleClass="ordreCss">
 						<f:convertDateTime pattern="MM/dd/yyyy" />
 					</h:outputText>
 				</h:panelGrid>
 			</h:form>
 			<br></br> <br></br>
-			<p:commandButton value="Valider"  action="#{ordreCtr.doAdd()}"/>
+			<p:commandButton value="Valider" action="#{ordreCtr.doAdd()}" />
 			<p:commandButton value="annuler" />
 		</div>
 		<!-- cB -->

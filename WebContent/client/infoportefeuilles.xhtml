@@ -67,15 +67,13 @@
 				<h1>Information Portefeuille</h1>
 				<br />
 
-				<h:panelGrid columns="4" cellpadding="5"
-					style="height : 23px; width : 604px;">
-
-
-					<p:outputLabel for="extended" value="Portefeuille" />
-					<p:outputLabel id="extended" required="true" />
+				<h:panelGrid columns="4" 
+					style="height : 23px;">
+					<p:outputLabel for="extended" value="Portefeuille :" />
+					<p:outputLabel id="extended" value="#{portefeuilleCtr.selectedPrtefeuille.libelle}"/>
 
 					<p:outputLabel for="number" value="Valorisation:" />
-					<p:outputLabel id="number" required="true" />
+					<p:outputLabel id="number" value="#{portefeuilleCtr.somme}" />
 				</h:panelGrid>
 
 				<br />

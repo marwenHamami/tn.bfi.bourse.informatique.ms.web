@@ -90,7 +90,7 @@ public class Valeur_marchéCtr {
 //		
 //		
 //		 valeur_marché.setLib_lon("Star");
-//		 valeur_marché.setHaut(181.0);
+//    	 valeur_marché.setHaut(181.0);
 //		 valeur_marché.setBas(179.0);
 //		 valeur_marché.setCours_ref(180.0);
 //		 valeur_marché.setDernier_cours(180.0);
@@ -101,7 +101,7 @@ public class Valeur_marchéCtr {
 //		 valeur_marchéLocal.add(valeur_marché);
 //		 valeur_marché = new Valeur_marché();
 //		
-//		
+//	
 //		 valeur_marché.setLib_lon("DELICE HOLDING");
 //		 valeur_marché.setHaut(16.88);
 //     	 valeur_marché.setBas(16.55);
@@ -125,7 +125,7 @@ public class Valeur_marchéCtr {
 //		 valeur_marché.setDate_dernier_cours(new Date());
 //		 valeur_marché.setVariation(2.78);
 //		 valeur_marchéLocal.add(valeur_marché);
-//		 
+		 
 
 	}
 
