@@ -26,7 +26,7 @@
 			</h:form>
 			<br />
 			<h3>
-				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">Liste
 					des valeurs</a>
 			</h3>
 			<br />
@@ -40,7 +40,7 @@
 			</h3>
 			<br />
 			<h3>
-				<a href="#{request.contextPath}/client/ordre.jsf"> Achat/Vente</a>
+				<a href="#{request.contextPath}/client/ordre.jsf"> Achat en Bourse</a>
 			</h3>
 			<br />
 			<h3>
@@ -48,10 +48,7 @@
 					vos ordres</a>
 			</h3>
 			<br />
-			<h3>
-				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
-					liquidité</a>
-			</h3>
+		
 		</div>
 
 		<div id="cB" align="center">
@@ -70,8 +67,7 @@
 							</span>
 
 
-							<p:commandButton value="Supprimer valeur" title="Supprimer"
-								icon="ui-icon-trash" />
+
 
 							<p:commandButton value="Imprimer" title="Imprimer"
 								icon="ui-icon-print" />
@@ -113,7 +109,10 @@
 							<h:outputLabel value="#{list.qte}" />
 						</p:column>
 						<p:column headerText="Operation">
-							<p:commandButton value="Achat" action="#{listeCtr.doRedirectToOrdre}" />
+							<p:commandButton  icon="ui-icon-plus" title="Achat"
+								action="#{listeCtr.doRedirectToOrdre}" />
+							<p:commandButton icon="ui-icon-closethick" title="supprimer"
+								action="#{listeCtr.doDeletevaleur()}" />
 						</p:column>
 					</p:dataTable>
 

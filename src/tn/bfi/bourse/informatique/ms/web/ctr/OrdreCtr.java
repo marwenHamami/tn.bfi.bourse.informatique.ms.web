@@ -65,7 +65,7 @@ public class OrdreCtr {
 		ordres = ordreEJBLocal.findAll();
 	}
 
-	public void doAdd() {
+	public String doAdd() {
 		// demande
 		demande.setOrdres(null);
 
@@ -107,6 +107,7 @@ public class OrdreCtr {
 		//
 		ordre = new Ordre();
 		demande = new Demande();
+		return "/client/suivreordre.jsf?faces-redirect=true";
 	}
 
 	public void doValider(Ordre ordre) {

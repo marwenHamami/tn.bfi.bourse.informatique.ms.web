@@ -512,9 +512,23 @@ h5 {
 }
 
 .infoValeur{
-	color: red;
-	font-weight:bold; 
+	color: #000000;
+	font-weight:normal;
+	font-size: 12px ;
+}
+
+.haut{
+	color: #00bb00;
+	font-weight:bolder; 
+}
+.bas{
+	color: #ff0000;
+	font-weight:bolder; 
 }
 .ordreCss{
-	width: 200px !important;
+	width: 160px !important;
+}
+.ms{
+	border-color: #c0c0c0;
+	font-weight: bolder;
 }

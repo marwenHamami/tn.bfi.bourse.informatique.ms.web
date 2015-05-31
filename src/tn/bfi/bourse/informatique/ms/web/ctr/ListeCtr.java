@@ -163,4 +163,19 @@ public class ListeCtr {
 		this.userCtr = userCtr;
 	}
 
+	public void doDeletevaleur() {
+		selectedValeurMarche = valeur_marcheLocol.findById(id_valeur);
+		if (selectedValeurMarche == null) {
+			System.err.println("aucune liste selectionner");
+			return;
+		}
+		for (Valeur_marché valeur_marché : listValeurMarche) {
+			if (valeur_marché.equals(selectedValeurMarche))
+				return;
+		}
+		ListeValeurMarche listeValeurMarche = new ListeValeurMarche(
+				ListSelectionner, selectedValeurMarche);
+		listeValeurMarcheLocal.delete(listeValeurMarche);
+		doAfficher();
+	}
 }

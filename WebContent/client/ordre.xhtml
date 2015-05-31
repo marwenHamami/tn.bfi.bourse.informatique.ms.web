@@ -29,7 +29,7 @@
 
 			<br />
 			<h3>
-				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">liste
+				<a href="#{request.contextPath}/client/liste%20valeurs.jsf">Liste
 					des valeurs</a>
 			</h3>
 			<br />
@@ -43,7 +43,8 @@
 			</h3>
 			<br />
 			<h3>
-				<a href="#{request.contextPath}/client/ordre.jsf"> Achat/Vente</a>
+				<a href="#{request.contextPath}/client/ordre.jsf"> Achat en
+					Bourse</a>
 			</h3>
 			<br />
 			<h3>
@@ -51,10 +52,6 @@
 					vos ordres</a>
 			</h3>
 			<br />
-			<h3>
-				<a href="#{request.contextPath}/client/compte_espece.jsf">Ajout/Retrait
-					liquidité</a>
-			</h3>
 
 
 		</div>
@@ -68,7 +65,8 @@
 				<p:growl id="growl" showDetail="true" sticky="true" />
 				<h:panelGrid columns="1" cellpadding="5">
 					<h:outputLabel value="portefeuille" />
-					<p:selectOneMenu value="#{ordreCtr.id_portefeuille}" styleClass="ordreCss">
+					<p:selectOneMenu value="#{ordreCtr.id_portefeuille}"
+						styleClass="ordreCss">
 						<f:selectItem itemLabel="Selectionner un portefeuille"
 							itemValue="" />
 						<f:selectItems value="#{portefeuilleCtr.portefeuilles}"
@@ -79,7 +77,8 @@
 					<br />
 					<br />
 					<h:outputLabel value="Valeurs marché" />
-					<p:selectOneMenu value="#{ordreCtr.id_valeur}" styleClass="ordreCss">
+					<p:selectOneMenu value="#{ordreCtr.id_valeur}"
+						styleClass="ordreCss">
 						<f:selectItem itemLabel="Selectionner une valeur" itemValue="" />
 						<f:selectItems value="#{valeur_marchéCtr.valeur_marché}"
 							var="valeur_marché" itemLabel="#{valeur_marché.lib_lon}"
@@ -87,13 +86,15 @@
 						<p:ajax event="change" update=":form:montant :form:cours_ref"
 							listener="#{ordreCtr.doCalculerMontant}" />
 					</p:selectOneMenu>
-					<br/><br/>
+					<br />
+					<br />
 					<p:inputText id="cours_ref" readonly="true" styleClass="ordreCss"
 						value="#{ordreCtr.valeur_marché.cours_ref}" />
 					<br />
 					<br />
 					<h:outputLabel value="Quantité(s)" />
-					<p:inputText value="#{ordreCtr.demande.qt_initial}" required="true" styleClass="ordreCss">
+					<p:inputText value="#{ordreCtr.demande.qt_initial}" required="true"
+						styleClass="ordreCss">
 						<f:ajax listener="#{ordreCtr.doCalculerMontant()}"
 							render=":form:montant" />
 					</p:inputText>
@@ -101,8 +102,9 @@
 
 
 					<h:outputLabel value="montant" />
-					<p:inputText type="text" disabled="disabled" id="montant" styleClass="ordreCss"
-						value="#{ordreCtr.demande.montant_net}" style="width: 150px;" />
+					<p:inputText type="text" disabled="disabled" id="montant"
+						styleClass="ordreCss" value="#{ordreCtr.demande.montant_net}"
+						style="width: 150px;" />
 					<br />
 					<br />
 					<p:selectOneMenu styleClass="ordreCss">
@@ -112,7 +114,8 @@
 					</p:selectOneMenu>
 					<br />
 					<p:outputLabel for="popup" value="Date de validité" />
-					<p:calendar id="popup" value="#{calendarView.date2}" styleClass="ordreCss" />
+					<p:calendar id="popup" value="#{calendarView.date2}"
+						styleClass="ordreCss" />
 
 					<h:outputText value="#{ordreCtr.ordre.date_validité}"
 						required="true" styleClass="ordreCss">
@@ -122,7 +125,8 @@
 			</h:form>
 			<br></br> <br></br>
 			<p:commandButton value="Valider" action="#{ordreCtr.doAdd()}" />
-			<p:commandButton value="annuler" />
+			<p:commandButton value="Annuler"/>
+
 		</div>
 		<!-- cB -->
 	</ui:define>
